@@ -8,11 +8,13 @@ import { ARTICLE_LIST_REQUEST,
     ARTICLE_DETAILS_FAIL,
 } from "../constants/articleConstants";
 
+const base_url = 'https://summarebackend.com';
+
 export const listArticles = (keyword = '') => async (dispatch) => {
     try {
         dispatch({ type: ARTICLE_LIST_REQUEST })
 
-        const { data } = await axios.get(`https://summarebackend.com/api/articles/${keyword}`)
+        const { data } = await axios.get(`${base_url}/api/articles/${keyword}`)
         // console.log(data)
 
         dispatch({

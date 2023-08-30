@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Row, Col, Image, Badge, Card} from 'react-bootstrap';
-import pexels2 from '../images/pexels2.png';
+import aiimg3 from '../images/aiimg3.jpeg';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
@@ -9,7 +9,7 @@ function ArticleOne({article}) {
    <Container className='pt-4'>
         <Row>
             <Link to={`/articles/${article.id}/`}>
-                <Image src={pexels2} fluid style={{'maxHeight':'37vh','minHeight': '37vh', 'width':'100%'}}/>
+                <Image src={article.image_url? article.image_url: aiimg3} fluid style={{'maxHeight':'37vh','minHeight': '37vh', 'width':'100%'}}/>
             </Link>
                 
         </Row>
