@@ -35,13 +35,14 @@ function HomeScreen({history}) {
   return (
     <div className='main'>
         <Header/>
-        {loading && <Loader/>}
+        
         {!keyword?
             <div className='pt-4'>
                 <Container>
                     <h2 className='text-start p-1' style={{'color': '#272937'}}>Trending New Articles</h2>
                 </Container>
                 
+                {loading && <Loader/>}
                 <Container>
                     <Row>
                         <Col lg={6} className=''>

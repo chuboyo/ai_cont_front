@@ -44,8 +44,8 @@ function ArticleScreen() {
     // console.log(article.image_url)
   return (
     <div>
-        {loading && <Loader/>}
         <Header/>
+        {loading && <Loader/>}
         <Container className='pt-4'>
             <Row className='pt-4 justify-content-center' style={{'fontSize':'1.0rem', 'fontWeight': '600', 'color':'#1A58B4', 'lineHeight':'1.5rem'}}>
                 Published {article.date}
