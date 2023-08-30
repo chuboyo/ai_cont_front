@@ -147,14 +147,14 @@ function ArticleScreen() {
                 <Col md={8} style={{'fontSize':'1.25rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.25rem'}}>
                     
                     {article.paragraph_one}
-                    <Container>
+                    {/* <Container>
                         <h3>Ad here</h3>
-                    </Container>
+                    </Container> */}
                     
                     {article.paragraph_two}
-                    <Container>
+                    {/* <Container>
                         <h3>Ad here</h3>
-                    </Container>
+                    </Container> */}
                 </Col>
                 <Col md={1}>
                 </Col>
