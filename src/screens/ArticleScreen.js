@@ -150,6 +150,8 @@ function ArticleScreen() {
                     {/* <Container>
                         <h3>Ad here</h3>
                     </Container> */}
+                    <br></br>
+                    <br></br>
                     
                     {article.paragraph_two}
                     {/* <Container>
