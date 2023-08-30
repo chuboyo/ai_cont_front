@@ -145,7 +145,7 @@ export default function App() {
 
         <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom footer' style={{'borderTop': '1px solid #D0D5DD'}}>
             <div className='text-start' style={{'color': '#98A2B3', 'fontSize': '1.0rem', 'fontWeight': '400', 'lineHeight': '1.5rem'}}>
-            © 2023 Logoipsum. All rights reserved.
+            © 2023 Summare. All rights reserved.
             
             </div>
 
