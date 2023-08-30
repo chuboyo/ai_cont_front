@@ -110,7 +110,7 @@ function PasswordResetScreen() {
                         <InputGroup className="mb-3">
                             
                             <Form.Control
-                            type='text'
+                            type='password'
                             value={newpassword}
                             placeholder="Enter new password"
                             onChange={(e)=>setNewPassword(e.target.value)}
@@ -123,7 +123,7 @@ function PasswordResetScreen() {
                         <InputGroup className="mb-3">
                             
                             <Form.Control
-                            type='text'
+                            type='password'
                             value={confirmnewpassword}
                             placeholder="Enter new password"
                             onChange={(e)=>setConfirmNewPassword(e.target.value)}

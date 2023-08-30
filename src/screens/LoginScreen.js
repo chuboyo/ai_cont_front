@@ -105,7 +105,7 @@ function LoginScreen() {
                             <InputGroup className="mb-3">
                                 
                                 <Form.Control
-                                type='text'
+                                type='password'
                                 value={password}
                                 placeholder="Enter your password"
                                 onChange={(e) => setPassword(e.target.value)}

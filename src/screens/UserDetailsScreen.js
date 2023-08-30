@@ -125,7 +125,7 @@ function UserDetailsScreen() {
                             <InputGroup className="mb-3">
                                 
                                 <Form.Control
-                                type='text'
+                                type='password'
                                 value={oldpassword}
                                 placeholder="Enter old password"
                                 onChange={(e) => setOldPassword(e.target.value)}
@@ -138,7 +138,7 @@ function UserDetailsScreen() {
                             <InputGroup className="mb-3">
                                 
                                 <Form.Control
-                                type='text'
+                                type='password'
                                 value={newpassword}
                                 placeholder="Enter new password"
                                 onChange={(e) => setNewPassword(e.target.value)}
@@ -151,7 +151,7 @@ function UserDetailsScreen() {
                             <InputGroup className="mb-3">
                                 
                                 <Form.Control
-                                type='text'
+                                type='password'
                                 value={confirmnewpassword}
                                 placeholder="Enter new password"
                                 onChange={(e) => setConfirmNewPassword(e.target.value)}
