@@ -9,7 +9,7 @@ function ArticleOne({article}) {
    <Container className='pt-4'>
         <Row>
             <Link to={`/articles/${article.id}/`}>
-                <Image src={article.image_url ? article.image_url : aiimg3} fluid style={{'maxHeight':'37vh','minHeight': '37vh', 'width':'100%'}}/>
+                <Image src={article.image_url ? article.image_url : process.env.PUBLIC_URL + '/images/aiimg2.jpeg'} fluid style={{'maxHeight':'37vh','minHeight': '37vh', 'width':'100%'}}/>
             </Link>
                 
         </Row>
