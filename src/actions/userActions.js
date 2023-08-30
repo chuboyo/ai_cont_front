@@ -29,6 +29,8 @@ import {
     USER_PASSWORDRESETCONFIRM_FAIL,
 } from '../constants/userConstants';
 
+const base_url = 'https://summarebackend.com';
+
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({
@@ -42,7 +44,7 @@ export const login = (email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            '/api/login/',
+            `${base_url}/api/login/`,
             { 'email': email, 'password': password },
             config
         )
@@ -84,7 +86,7 @@ export const register = (name, email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            '/api/register/',
+            `${base_url}/api/register/`,
             { 'username': name, 'email': email, 'password': password },
             config
         )
@@ -130,7 +132,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/user/`,
+            `${base_url}/api/user/`,
             config
         )
 
@@ -171,7 +173,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `/api/change_password/`,
+            `${base_url}/api/change_password/`,
             user,
             config
         )
@@ -216,7 +218,7 @@ export const resetPassword = (user) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            `/api/password_reset/`,
+            `${base_url}/api/password_reset/`,
             user,
             config
         )
@@ -254,7 +256,7 @@ export const resetPasswordConfirm = (user) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            `/api/password_reset/confirm/`,
+            `${base_url}/api/password_reset/confirm/`,
             user,
             config
         )

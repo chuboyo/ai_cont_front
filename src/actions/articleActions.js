@@ -37,7 +37,7 @@ export const listArticleDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: ARTICLE_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/articles/${id}/`)
+        const { data } = await axios.get(`${base_url}/api/articles/${id}/`)
 
         // console.log(data)
 
