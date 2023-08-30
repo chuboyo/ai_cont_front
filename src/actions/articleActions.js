@@ -12,7 +12,7 @@ export const listArticles = (keyword = '') => async (dispatch) => {
     try {
         dispatch({ type: ARTICLE_LIST_REQUEST })
 
-        const { data } = await axios.get(`/api/articles/${keyword}`)
+        const { data } = await axios.get(`https://summarebackend.com/api/articles/${keyword}`)
         // console.log(data)
 
         dispatch({
