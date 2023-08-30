@@ -1,6 +1,6 @@
 {
   "name": "ai-content-front",
-  "proxy": "http://ec2-54-161-115-14.compute-1.amazonaws.com",
+  "proxy": "https://summarebackend.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
