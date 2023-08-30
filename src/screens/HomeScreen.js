@@ -24,7 +24,7 @@ function HomeScreen({history}) {
 
 
     useEffect(() => {
-        // console.log(keyword)
+        console.log(articles)
         // window.scrollTo({top: 0});
         dispatch(listArticles(keyword))
         window.scrollTo({top: 0});
