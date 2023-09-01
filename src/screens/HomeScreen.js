@@ -67,7 +67,7 @@ function HomeScreen({history}) {
                         </Col>
                     </Row>
                     <Row>
-                        {/* <AdComponent/> */}
+                        <AdComponent/>
                     </Row>
                     <Container>
                         <h2 className='text-start pt-4' style={{'color': '#272937'}}>All Articles</h2>
