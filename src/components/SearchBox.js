@@ -27,7 +27,6 @@ function SearchBox() {
                 </InputGroup.Text>
                 <Form.Control
                 type='text'
-                size='lg'
                 name='q'
                 placeholder={'Search'}
                 aria-describedby="basic-addon1"

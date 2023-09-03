@@ -10,10 +10,10 @@ export default function App() {
     <MDBFooter bgColor='' className='text-center text-lg-start text-muted pt-2'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 newsletter'>
         <div className='me-4 d-none d-lg-block p-2'>
-            <div className='row'>
+            <div className='row mx-4'>
                 <h3 style={{'color': '#101828', 'fontSize':'1.25rem', 'fontWeight':'500', 'lineHeight':'1.875rem'}}>Join our newsletter</h3>
             </div>
-            <div className='row'>
+            <div className='row mx-4'>
                 <p style={{'color': '#667085', 'fontSize':'1.0rem', 'fontWeight':'400', 'lineHeight':'1.5rem'}}>We'll send you a nice letter once per week. No spam.</p>
             </div>
           

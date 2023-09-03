@@ -9,20 +9,20 @@ function ArticleOne({article}) {
    <Container className='pt-4'>
         <Row>
             <Link to={`/articles/${article.id}/`}>
-                <Image src={article.image_url? article.image_url: aiimg3} fluid style={{'maxHeight':'37vh','minHeight': '37vh', 'width':'100%'}}/>
+                <Image src={article.image_url? article.image_url: aiimg3} fluid style={{'maxHeight':'33vh','minHeight': '33vh', 'width':'100%'}}/>
             </Link>
                 
         </Row>
-        
-        <Row className='text-start' style={{'fontSize':'0.875rem', 'fontWeight': '600', 'color':'#98A2B3', 'lineHeight':'1.25rem'}}>
-            <Container>{article.source} &bull; {article.date} </Container>
-             
-            
-        </Row>
+    
         <Row className='text-start' style={{'fontSize':'1.3rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'2.0rem'}}>
             <Link to={`/articles/${article.id}/`} className='link-item'>
                 {article.title}
             </Link>
+            
+        </Row>
+        <Row className='text-start' style={{'fontSize':'0.875rem', 'fontWeight': '600', 'color':'#98A2B3', 'lineHeight':'1.25rem'}}>
+            <Container>{article.date} </Container>
+             
             
         </Row>
         <Row className='text-start truncate2 pt-2' style={{'fontSize':'1.0rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.5rem'}}>

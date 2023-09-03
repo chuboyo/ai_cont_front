@@ -53,7 +53,7 @@ function ArticleScreen() {
             <Row className='pt-2 justify-content-center' style={{'fontSize':'2.5rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'3.75rem'}}>
                 {article.title}
             </Row>
-            <Row className='pt-2 truncate3' style={{'fontSize':'1.25rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.875rem'}}>
+            <Row className='pt-2 justify-content-center truncate3' style={{'fontSize':'1.25rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.875rem'}}>
                 <p>{article.paragraph_one}</p>
             </Row>
             <Row className='pt-2'>
@@ -144,7 +144,7 @@ function ArticleScreen() {
                 </Col>
             </Row>
             <Row className='pt-4 pb-4'>
-                <Col md={8} style={{'fontSize':'1.25rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.25rem'}}>
+                <Col className='text-start' md={8} style={{'fontSize':'1.25rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.25rem'}}>
                     
                     {article.paragraph_one}
                     {/* <Container>
@@ -161,7 +161,10 @@ function ArticleScreen() {
                 <Col md={1}>
                 </Col>
                 <Col md={3} className='text-start'>
-                    <Row style={{'fontSize':'1.0rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'1.5rem'}}>Related Articles</Row>
+                    <Container>
+                        <Row style={{'fontSize':'1.0rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'1.5rem'}}>Related Articles</Row>
+                    </Container>
+                    
                     {sliced_articles.map(article => (
                         <Row key={article.id}>
                             <Link  to={`/articles/${article.id}/`} className='' style={{'fontSize':'1.0rem', 'fontWeight': '400', 'color':'#1A58B4', 'lineHeight':'1.5rem'}}>
