@@ -66,9 +66,7 @@ function HomeScreen({history}) {
                             </Row>
                         </Col>
                     </Row>
-                    <Row>
-                        <AdComponent/>
-                    </Row>
+                    <AdComponent/>
                     <Container>
                         <h2 className='text-start pt-4' style={{'color': '#272937'}}>All Articles</h2>
                     </Container>
@@ -106,6 +104,7 @@ function HomeScreen({history}) {
                 <Paginate page={page} pages={pages} keyword={keyword}/>
                 <div className='p-2' style={{'color':'#667085'}} onClick={()=> navigate(`/?keyword=&page=${page < pages? page + 1: pages}`)}><i className="fa-solid fa-arrow-right"></i></div>
         </div>
+        <AdComponent/>
         <Footer/>
       
     </div>

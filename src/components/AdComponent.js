@@ -8,12 +8,16 @@ class AdComponent extends Component {
     
   render() {
     return (
-        <div>
+
         <ins className = "adsbygoogle"
-                style = { {display:"inline-block",width:"728px",height:"90px"} }
+                style = {{"display":"block"}}
                 data-ad-client = "ca-pub-6571563457435209"
-                data-ad-slot = "8262966173"></ins>
-        </div>)
+                data-ad-slot = "3921533405"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+                >
+        </ins>
+       )
   }
 }
 
