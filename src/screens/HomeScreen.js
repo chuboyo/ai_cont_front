@@ -39,7 +39,7 @@ function HomeScreen({history}) {
         {!keyword?
             <div className='pt-4'>
                 <Container>
-                    <h2 className='text-start p-1' style={{'color': '#272937'}}>Trending New Articles</h2>
+                    <h2 className='text-start p-1' style={{'color': '#272937'}}>Trending AI Articles</h2>
                 </Container>
                 
                 {loading && <Loader/>}
@@ -68,7 +68,7 @@ function HomeScreen({history}) {
                     </Row>
                     <AdComponent/>
                     <Container>
-                        <h2 className='text-start pt-4' style={{'color': '#272937'}}>All Articles</h2>
+                        <h2 className='text-start pt-4' style={{'color': '#272937'}}>All AI Articles</h2>
                     </Container>
                     <Row>
                         {articles.slice(6,).map(

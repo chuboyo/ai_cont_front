@@ -21,7 +21,7 @@ export default function App() {
 
         <div className='p-3'>
             
-           <Button variant='primary' className='blue-button p-2'>Subscribe</Button>
+           <Button variant='primary' className='blue-button p-2' href='/construction'>Subscribe</Button>
     
               
         </div>

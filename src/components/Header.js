@@ -51,8 +51,8 @@ function Header() {
           </Nav>
           
           <Nav className='me-auto pt-2'>
-          <div style={{width:"100%"}}>
-            <SearchBox/>
+          <div style={{"minWidth":"500px !important;"}}>
+            <SearchBox style={{"width":"500px !important;"}}/>
           </div>
           </Nav>
           {userInfo? 
@@ -64,7 +64,7 @@ function Header() {
                 Logout
                 </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" style={{'color': '#1A58B4'}}>
+            <Nav.Link href="/construction" style={{'color': '#1A58B4'}}>
                 <Button variant='primary' className='blue-button' style={{'fontSize':'1.2rem'}}>Subscribe</Button>
             </Nav.Link>
           
@@ -76,7 +76,7 @@ function Header() {
             {/* <LinkContainer to='/register'>
                 <Nav.Link href="#" style={{'color': '#272937'}}>Sign up</Nav.Link>
             </LinkContainer> */}
-            <Nav.Link href="#" style={{'color': '#1A58B4'}}>
+            <Nav.Link href="/construction" style={{'color': '#1A58B4'}}>
                 <Button variant='primary' className='blue-button'>Subscribe</Button>
             </Nav.Link>
           </Nav>

@@ -15,6 +15,13 @@ function ArticleTwo({article}) {
                 </Link>
             </Col>
             <Col lg={6}>
+                
+                <Row className='text-start' style={{'fontSize':'1.2rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'1.3rem'}}>
+                    <Link to={`/articles/${article.id}/`} className='link-item'>
+                        {article.title}
+                    </Link> 
+                </Row>
+
                 <Container>
                     <Row className='text-start' style={{'fontSize':'0.875rem', 'fontWeight': '600', 'color':'#98A2B3', 'lineHeight':'1.25rem'}}>
                         {article.date}
@@ -22,14 +29,8 @@ function ArticleTwo({article}) {
                     </Row>
                 </Container>
                 
-                <Row className='text-start' style={{'fontSize':'1.2rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'2.0rem'}}>
-                    <Link to={`/articles/${article.id}/`} className='link-item'>
-                        {article.title}
-                    </Link> 
-                </Row>
-                
                 <Container>
-                    <Row className='text-start truncate3' style={{'fontSize':'1.0rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.5rem'}}>
+                    <Row className='text-start truncate2' style={{'fontSize':'1.0rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.5rem'}}>
                         {article.paragraph_one}
                     </Row>
                 </Container>

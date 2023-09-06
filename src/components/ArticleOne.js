@@ -14,7 +14,7 @@ function ArticleOne({article}) {
                 
         </Row>
     
-        <Row className='text-start' style={{'fontSize':'1.3rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'2.0rem'}}>
+        <Row className='text-start pt-1' style={{'fontSize':'1.3rem', 'fontWeight': '600', 'color':'#101828', 'lineHeight':'1.3rem'}}>
             <Link to={`/articles/${article.id}/`} className='link-item'>
                 {article.title}
             </Link>

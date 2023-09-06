@@ -144,7 +144,7 @@ function ArticleScreen() {
                 </Col>
             </Row>
             <Row className='pt-4 pb-4'>
-                <Col className='text-start pt-2' md={8} style={{'fontSize':'1.25rem', 'fontWeight': '400', 'color':'#667085', 'lineHeight':'1.25rem'}}>
+                <Col className='text-start pt-2' md={8} style={{'fontSize':'1.1rem', 'fontWeight': '400', 'color':'#101828', 'lineHeight':'1.25rem'}}>
                     
                     {article.paragraph_one}
                     {/* <Container>

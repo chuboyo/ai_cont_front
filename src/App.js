@@ -10,6 +10,7 @@ import LoginScreen from './screens/LoginScreen';
 import UserDetailsScreen from './screens/UserDetailsScreen';
 import PasswordResetScreen from './screens/PasswordResetScreen';
 import PasswordResetConfirmScreen from './screens/PasswordResetConfirmScreen';
+import UnderConstructionScreen from './screens/UnderConstructionScreen';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path='/user' element={<UserDetailsScreen/>}/>
           <Route path='/password_reset' element={<PasswordResetScreen/>}/>
           <Route path='/password_reset/confirm' element={<PasswordResetConfirmScreen/>}/>
+          <Route path='/construction' element={<UnderConstructionScreen/>}/>
           {/* <Route path='/*' Component={Classifier}/> */}
         </Routes>
       </div>

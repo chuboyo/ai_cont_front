@@ -45,7 +45,7 @@ function Header() {
                 Logout
                 </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" style={{'color': '#1A58B4'}}>
+            <Nav.Link href="/construction" style={{'color': '#1A58B4'}}>
                 <Button variant='primary' className='blue-button'>Subscribe</Button>
             </Nav.Link>
           
@@ -54,10 +54,10 @@ function Header() {
             <LinkContainer to='/login'>
                 <Nav.Link href="#" style={{'color': '#272937'}}>Log in</Nav.Link>
             </LinkContainer>
-            <LinkContainer to='/register'>
+            {/* <LinkContainer to='/register'>
                 <Nav.Link href="#" style={{'color': '#272937'}}>Sign up</Nav.Link>
-            </LinkContainer>
-            <Nav.Link href="#" style={{'color': '#1A58B4'}}>
+            </LinkContainer> */}
+            <Nav.Link href="/construction" style={{'color': '#1A58B4'}}>
                 <Button variant='primary' className='blue-button'>Subscribe</Button>
             </Nav.Link>
           </Nav>
