@@ -8,7 +8,7 @@ import { ARTICLE_LIST_REQUEST,
     ARTICLE_DETAILS_FAIL,
 } from "../constants/articleConstants";
 
-const base_url = 'http://ec2-54-161-115-14.compute-1.amazonaws.com';
+const base_url = 'https://summarebackend.com';
 
 export const listArticles = (keyword = '') => async (dispatch) => {
     try {
