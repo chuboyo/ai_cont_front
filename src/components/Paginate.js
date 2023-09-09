@@ -11,10 +11,20 @@ function Paginate({ pages, page, keyword = '',}) {
         keyword = keyword.split('?keyword=')[1].split('&')[0]
     }
 
+    let page_array = []
+    let page_start = Math.floor(page/10) * 10
+    let page_end = page_start + 10
+
+    for(page_start; page_start<page_end && page_start<=pages; page_start++){
+        page_array.push(page_start)
+       }
+    
+      
+
 
     return (pages > 1 && (
         <Pagination>
-            {[...Array(pages).keys()].map((x) => (
+            {page_array.map((x) => (
                 // <LinkContainer
                 //     key={x + 1}
                 //     to={`/?keyword=${keyword}&page=${x + 1}`}

@@ -32,7 +32,7 @@ function ArticleOne({article}) {
         <Row className='text-start'>
             <Col xs={2}>
                 <Badge bg="info" text="dark" className='pill-button'>
-                Artificial Intelligence
+                {article.category? article.category: 'Artificial Intelligence'}
             </Badge>
             </Col>
         </Row>

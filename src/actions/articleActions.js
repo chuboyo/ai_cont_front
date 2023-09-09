@@ -8,7 +8,8 @@ import { ARTICLE_LIST_REQUEST,
     ARTICLE_DETAILS_FAIL,
 } from "../constants/articleConstants";
 
-const base_url = 'https://summarebackend.com';
+// const base_url = 'https://summarebackend.com';
+const base_url = 'http://127.0.0.1:8000'
 
 export const listArticles = (keyword = '') => async (dispatch) => {
     try {

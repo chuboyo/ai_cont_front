@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Col, Row, Image } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../App.css';
 import favicon32x32 from '../images/favicon32x32.png';
@@ -16,11 +17,32 @@ import SearchBox from './SearchBox';
 function Header() {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
     const logoutHandler = () => {
         dispatch(logout())
+    }
+
+    const engineeringHandler = () => {
+      navigate(`/?keyword=engineering&page=1`)
+    }
+
+    const cvHandler = () => {
+      navigate(`/?keyword=computervision&page=1`)
+    }
+
+    const electronicsHandler = () => {
+      navigate(`/?keyword=electronics&page=1`)
+    }
+
+    const llmHandler = () => {
+      navigate(`/?keyword=llm&page=1`)
+    }
+
+    const climateHandler = () => {
+      navigate(`/?keyword=climate&page=1`)
     }
 
   return (
@@ -37,11 +59,13 @@ function Header() {
           <Nav className="me-auto">
             
             <NavDropdown title="Explore by topic" id="basic-nav-dropdown" style={{'color': '#272937', 'fontSize':'1.2rem'}}>
-              <NavDropdown.Item href="#">Engineering</NavDropdown.Item>
-              <NavDropdown.Item href="#">
-              Space exploration
+              <NavDropdown.Item href="#" onClick={engineeringHandler}>Engineering</NavDropdown.Item>
+              <NavDropdown.Item href="#" onClick={cvHandler}>
+              Computer Vision
               </NavDropdown.Item>
-              <NavDropdown.Item href="#">Electronics</NavDropdown.Item>
+              <NavDropdown.Item href="#" onClick={electronicsHandler}>Electronics</NavDropdown.Item>
+              <NavDropdown.Item href="#" onClick={llmHandler}>LLMs</NavDropdown.Item>
+              <NavDropdown.Item href="#" onClick={climateHandler}>Climate</NavDropdown.Item>
               {/* <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link
@@ -51,8 +75,8 @@ function Header() {
           </Nav>
           
           <Nav className='me-auto pt-2'>
-          <div style={{"minWidth":"500px !important;"}}>
-            <SearchBox style={{"width":"500px !important;"}}/>
+          <div>
+            <SearchBox/>
           </div>
           </Nav>
           {userInfo? 

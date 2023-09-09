@@ -24,7 +24,7 @@ function HomeScreen({history}) {
 
 
     useEffect(() => {
-        // console.log(articles)
+        console.log(articles)
         // console.log(error)
         // window.scrollTo({top: 0});
         dispatch(listArticles(keyword))
@@ -36,7 +36,7 @@ function HomeScreen({history}) {
     <div className='main'>
         <Header/>
         
-        {!keyword?
+        {!keyword && articles?
             <div className='pt-4'>
                 <Container>
                     <h2 className='text-start p-1' style={{'color': '#272937'}}>Trending AI Articles</h2>
@@ -80,8 +80,13 @@ function HomeScreen({history}) {
                         )}
                     </Row>
                 </Container>
-            </div> :
+            </div> : articles.length == 0?
             <Container>
+                <Row style={{'minHeight': '40vh'}}></Row>
+                <Row className='justify-content-center' style={{'fontSize':'2.0rem', 'color':'#667085'}}>No articles found</Row>
+            </Container>
+           :
+           <Container>
                 <Row>
                     {articles.map(
                         article => (
@@ -97,13 +102,14 @@ function HomeScreen({history}) {
         }
         
         
-        
-        
+        {articles.length > 0 && 
         <div style={{ display: "flex", justifyContent: "center" }} className='pt-4'>
-                <div className='p-2' style={{'color':'#667085'}} onClick={()=> navigate(`/?keyword=&page=${page > 1? page - 1: 1}`)}><i className="fa-solid fa-arrow-left"></i></div>
-                <Paginate page={page} pages={pages} keyword={keyword}/>
-                <div className='p-2' style={{'color':'#667085'}} onClick={()=> navigate(`/?keyword=&page=${page < pages? page + 1: pages}`)}><i className="fa-solid fa-arrow-right"></i></div>
-        </div>
+            <div className='p-2' style={{'color':'#667085'}} onClick={()=> navigate(`/?keyword=&page=${page > 1? page - 1: 1}`)}><i className="fa-solid fa-arrow-left"></i></div>
+            <Paginate page={page} pages={pages} keyword={keyword}/>
+            <div className='p-2' style={{'color':'#667085'}} onClick={()=> navigate(`/?keyword=&page=${page < pages? page + 1: pages}`)}><i className="fa-solid fa-arrow-right"></i></div>
+        </div>}
+        
+        
         <AdComponent/>
         <Footer/>
       
