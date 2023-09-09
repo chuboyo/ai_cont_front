@@ -29,8 +29,8 @@ import {
     USER_PASSWORDRESETCONFIRM_FAIL,
 } from '../constants/userConstants';
 
-// const base_url = 'https://summarebackend.com';
-const base_url = 'http://127.0.0.1:8000'
+const base_url = 'https://summarebackend.com';
+// const base_url = 'http://127.0.0.1:8000'
 
 export const login = (email, password) => async (dispatch) => {
     try {
