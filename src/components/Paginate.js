@@ -15,7 +15,7 @@ function Paginate({ pages, page, keyword = '',}) {
     let page_start = Math.floor(page/10) * 10
     let page_end = page_start + 10
 
-    for(page_start; page_start<page_end && page_start<=pages; page_start++){
+    for(page_start; page_start<page_end && page_start<pages; page_start++){
         page_array.push(page_start)
        }
     
