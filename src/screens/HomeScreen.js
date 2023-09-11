@@ -80,7 +80,7 @@ function HomeScreen({history}) {
                         )}
                     </Row>
                 </Container>
-            </div> : articles.length == 0?
+            </div> : !loading && articles.length == 0?
             <Container>
                 <Row style={{'minHeight': '40vh'}}></Row>
                 <Row className='justify-content-center' style={{'fontSize':'2.0rem', 'color':'#667085'}}>No articles found</Row>
