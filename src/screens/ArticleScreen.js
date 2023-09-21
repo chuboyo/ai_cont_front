@@ -58,7 +58,7 @@ function ArticleScreen() {
             </Row>
             <Row className='pt-2'>
                 <Col md={12} className='text-center'>
-                    <Badge bg="info" className='text-center pill-button'>Artificial Intelligence</Badge>
+                    <Badge bg="info" className='text-center pill-button'>{article.category? article.category: 'Artificial Intelligence'}</Badge>
                 </Col>
             </Row>
             <Row className='pt-4'>
