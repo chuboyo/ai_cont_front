@@ -69,20 +69,20 @@ export default function App() {
               base: "gap-4",
             }}
           >
-            <DropdownItem key="autoscaling" startContent={icons.scale}>
-              Autoscaling
+            <DropdownItem key="engineering" startContent={icons.scale}>
+              Engineering
             </DropdownItem>
-            <DropdownItem key="usage_metrics" startContent={icons.activity}>
-              Usage Metrics
+            <DropdownItem key="computer_vision" startContent={icons.activity}>
+              Computer Vision
             </DropdownItem>
-            <DropdownItem key="production_ready" startContent={icons.flash}>
-              Production Ready
+            <DropdownItem key="electronics" startContent={icons.flash}>
+              Electronics
             </DropdownItem>
-            <DropdownItem key="99_uptime" startContent={icons.server}>
-              +99% Uptime
+            <DropdownItem key="llms" startContent={icons.server}>
+              LLMs
             </DropdownItem>
-            <DropdownItem key="supreme_support" startContent={icons.user}>
-              +Supreme Support
+            <DropdownItem key="climate" startContent={icons.user}>
+              Climate
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -95,7 +95,7 @@ export default function App() {
               mainWrapper: "h-full",
               input: "text-small",
               inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+                "h-full font-normal text-default-500 dark:bg-default-500/20",
             }}
             radius="none"
             variant="bordered"

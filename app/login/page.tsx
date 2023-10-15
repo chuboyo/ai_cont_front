@@ -46,7 +46,14 @@ const page = () => {
             <Link href={"/"} className="font-semibold text-blue-600">
               Forgot Password?
             </Link>
-            <Button variant="solid" size="md" color="primary" radius="sm">
+            <Button
+              href="/"
+              as={Link}
+              variant="solid"
+              size="md"
+              color="primary"
+              radius="sm"
+            >
               Sign In
             </Button>
             <p className="text-center">OR</p>
