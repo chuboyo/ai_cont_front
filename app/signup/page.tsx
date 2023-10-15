@@ -26,9 +26,16 @@ const page = () => {
           <p className="font-semibold text-2xl text-blue-600">Summare</p>
         </div>
         <div className="flex justify-center align-middle content-center items-center h-4/5">
-          <form action="" className="flex flex-col gap-y-4">
-            <h1 className="text-4xl font-bold">Login</h1>
-            <p>Welcome back! Please enter your details</p>
+          <form action="" className="flex flex-col gap-y-4 max-w-sm">
+            <h1 className="text-4xl font-bold">Signup</h1>
+            <p>Welcome! Please enter your details to create your account.</p>
+            <Input
+              radius="none"
+              variant="bordered"
+              size="sm"
+              type="text"
+              label="Name"
+            />
             <Input
               radius="none"
               variant="bordered"
@@ -43,21 +50,18 @@ const page = () => {
               type="password"
               label="Password"
             />
-            <Link href={"/"} className="font-semibold text-blue-600">
-              Forgot Password?
-            </Link>
             <Button variant="solid" size="md" color="primary" radius="sm">
-              Sign In
+              Create account
             </Button>
             <p className="text-center">OR</p>
             <Button
-              href="/signup"
-              size="md"
-              as={Link}
               radius="sm"
+              as={Link}
+              href="/login"
+              size="md"
               variant="bordered"
             >
-              Sign Up
+              Sign In
             </Button>
           </form>
         </div>
