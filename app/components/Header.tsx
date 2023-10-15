@@ -25,7 +25,7 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 import SearchIcon from "./SearchIcon";
 
-export default function App() {
+export default function Header() {
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -44,16 +44,19 @@ export default function App() {
       classNames={{
         wrapper: "px-5 py-10 max-w-[1300px] mx-auto",
       }}
+      shouldHideOnScroll
     >
       <NavbarBrand className="gap-5">
-        <Image src={logo} alt="Logo" />
-        <p className="font-semibold text-xl text-blue-600">Summare</p>
+        <div className="flex gap-1">
+          <Image src={logo} alt="Logo" />
+          <p className="font-semibold text-2xl text-blue-600">Summare</p>
+        </div>
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="p-0 text-lg bg-transparent data-[hover=true]:bg-transparent"
+                className="p-0 text-lg font-medium bg-transparent data-[hover=true]:bg-transparent"
                 endContent={icons.chevron}
                 radius="sm"
                 variant="light"
