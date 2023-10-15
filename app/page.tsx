@@ -19,6 +19,7 @@ export default function Home() {
       <div className="flex max-w-full justify-between">
         <div className="flex w-1/2 flex-col ps-28 pe-10">
           <ArticleOne
+            href="/article"
             image_url={article_one}
             title="AI Is Supercharging the Capabilities of Security Cameras"
             date="July 21, 2021"
