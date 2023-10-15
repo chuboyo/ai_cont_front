@@ -26,9 +26,12 @@ const page = () => {
           <p className="font-semibold text-2xl text-blue-600">Summare</p>
         </div>
         <div className="flex justify-center align-middle content-center items-center h-4/5">
-          <form action="" className="flex flex-col gap-y-4">
-            <h1 className="text-4xl font-bold">Login</h1>
-            <p>Welcome back! Please enter your details</p>
+          <form action="" className="flex flex-col gap-y-4 max-w-sm">
+            <h1 className="text-4xl font-bold">Forgot Password</h1>
+            <p>
+              Enter the email associated with your account to change your
+              password.
+            </p>
             <Input
               radius="none"
               variant="bordered"
@@ -36,19 +39,9 @@ const page = () => {
               type="email"
               label="Email"
             />
-            <Input
-              variant="bordered"
-              radius="none"
-              size="sm"
-              type="password"
-              label="Password"
-            />
-            <Link
-              href={"/forgot-password"}
-              className="font-semibold text-blue-600"
-            >
-              Forgot Password?
-            </Link>
+            {/* <Link href={"/login"} className="font-semibold text-blue-600">
+              Login
+            </Link> */}
             <Button
               href="/"
               as={Link}
@@ -57,17 +50,18 @@ const page = () => {
               color="primary"
               radius="sm"
             >
-              Sign In
+              Proceed
             </Button>
             <p className="text-center">OR</p>
             <Button
-              href="/signup"
+              href="/login"
               size="md"
               as={Link}
               radius="sm"
               variant="bordered"
+              //   variant="shadow"
             >
-              Sign Up
+              Go back
             </Button>
           </form>
         </div>
