@@ -1,8 +1,6 @@
-"use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import { Button, Input } from "@nextui-org/react";
-import Link from "next/link";
+import LoginForm from "../components/LoginForm";
 const page = () => {
   return (
     <div className="flex max-w-full overflow-hidden h-screen">
@@ -26,50 +24,11 @@ const page = () => {
           <p className="font-semibold text-2xl text-blue-600">Summare</p>
         </div>
         <div className="flex justify-center align-middle content-center items-center h-4/5">
-          <form action="" className="flex flex-col gap-y-4">
+          <div className="flex flex-col gap-y-4">
             <h1 className="text-4xl font-bold">Login</h1>
             <p>Welcome back! Please enter your details</p>
-            <Input
-              radius="none"
-              variant="bordered"
-              size="sm"
-              type="email"
-              label="Email"
-            />
-            <Input
-              variant="bordered"
-              radius="none"
-              size="sm"
-              type="password"
-              label="Password"
-            />
-            <Link
-              href={"/forgot-password"}
-              className="font-semibold text-blue-600"
-            >
-              Forgot Password?
-            </Link>
-            <Button
-              href="/"
-              as={Link}
-              variant="solid"
-              size="md"
-              color="primary"
-              radius="sm"
-            >
-              Sign In
-            </Button>
-            <p className="text-center">OR</p>
-            <Button
-              href="/signup"
-              size="md"
-              as={Link}
-              radius="sm"
-              variant="bordered"
-            >
-              Sign Up
-            </Button>
-          </form>
+            <LoginForm />
+          </div>
         </div>
       </div>
     </div>

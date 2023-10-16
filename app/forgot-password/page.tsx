@@ -1,8 +1,6 @@
-"use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import { Button, Input } from "@nextui-org/react";
-import Link from "next/link";
+import ForgotPasswordForm from "../components/ForgotPasswordForm";
 const page = () => {
   return (
     <div className="flex max-w-full overflow-hidden h-screen">
@@ -32,37 +30,7 @@ const page = () => {
               Enter the email associated with your account to change your
               password.
             </p>
-            <Input
-              radius="none"
-              variant="bordered"
-              size="sm"
-              type="email"
-              label="Email"
-            />
-            {/* <Link href={"/login"} className="font-semibold text-blue-600">
-              Login
-            </Link> */}
-            <Button
-              href="/"
-              as={Link}
-              variant="solid"
-              size="md"
-              color="primary"
-              radius="sm"
-            >
-              Proceed
-            </Button>
-            <p className="text-center">OR</p>
-            <Button
-              href="/login"
-              size="md"
-              as={Link}
-              radius="sm"
-              variant="bordered"
-              //   variant="shadow"
-            >
-              Go back
-            </Button>
+            <ForgotPasswordForm />
           </form>
         </div>
       </div>

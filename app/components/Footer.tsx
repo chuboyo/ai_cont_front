@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
+import Link from "next/link";
 const Footer = () => {
   const footerNavs = [
     {
@@ -79,9 +80,11 @@ const Footer = () => {
               onSubmit={(e) => e.preventDefault()}
               className="items-center gap-x-3 space-y-3 sm:space-y-0 md:space-y-3 sm:flex md:block"
             >
-              <button className="block w-full py-3 px-4 font-medium text-sm text-center text-white bg-blue-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow sm:w-auto md:w-full">
-                Subscribe
-              </button>
+              <Link href={"/under-construction"}>
+                <button className="block w-full py-3 px-4 font-medium text-sm text-center text-white bg-blue-600 hover:bg-blue-800 active:bg-indigo-700 active:shadow-none rounded-lg shadow sm:w-auto md:w-full">
+                  Subscribe
+                </button>
+              </Link>
             </form>
           </div>
         </div>
@@ -116,7 +119,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="mt-8 py-6 px-10 border-t w-screen items-center justify-between sm:flex">
+      <div className="mt-8 py-6 px-10 border-t items-center justify-between sm:flex">
         <div className="mt-4 sm:mt-0">
           &copy; 2023 Summare. All rights reserved.
         </div>

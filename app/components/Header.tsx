@@ -47,10 +47,12 @@ export default function Header() {
       shouldHideOnScroll
     >
       <NavbarBrand className="gap-5">
-        <div className="flex gap-1">
-          <Image src={logo} alt="Logo" />
-          <p className="font-semibold text-2xl text-blue-600">Summare</p>
-        </div>
+        <Link href="/">
+          <div className="flex gap-1">
+            <Image src={logo} alt="Logo" />
+            <p className="font-semibold text-2xl text-blue-600">Summare</p>
+          </div>
+        </Link>
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
@@ -66,7 +68,7 @@ export default function Header() {
             </DropdownTrigger>
           </NavbarItem>
           <DropdownMenu
-            aria-label="ACME features"
+            aria-label="Explore by topic"
             className="w-[340px]"
             itemClasses={{
               base: "gap-4",

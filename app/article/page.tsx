@@ -4,74 +4,65 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import article_one from "../../public/article_one.avif";
-import { TwitterIcon, FacebookIcon, EmailIcon } from "react-share";
+import { useSearchParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import Loader from "../components/Loader";
 
-const page = () => {
+const Article = () => {
+  const params = useSearchParams();
+  const { data, isLoading } = useQuery({
+    queryKey: ["article-detail"],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://summarebackend.com/api/articles/${params.get("id")}/`
+      );
+      console.log(data);
+      return data;
+    },
+  });
+  if (isLoading) return <Loader />;
   return (
     <div>
       <Header />
       <div className="flex flex-col items-center p-10 gap-5">
         <h2 className="text-blue-800 text-xl font-semibold">
-          Published 2023-09-13
+          {data ? data.date : "Loading..."}
         </h2>
         <h1 className="text-4xl font-semibold">
-          AI Is Supercharging the Capabilities of Security Cameras
+          {data ? data.title : "Loading..."}
         </h1>
-        <p className="px-10 text-2xl text-ellipsis text-center truncate">
-          AI security cameras are revolutionizing surveillance for both
-          consumers and businesses. One advantage is that they trigger immediate
-          ...
+        <p className="px-10 text-xl text-ellipsis text-center truncate2-custom">
+          {data ? data.paragraph_one : "Loading..."}
         </p>
         <Chip color="primary" variant="flat">
-          Artificial Intelligence
+          {data ? data.category : "Loading..."}
         </Chip>
-        <Image src={article_one} className="w-11/12 h-96" alt="Article Image" />
+        <Image
+          src={data ? data.image_url : "/"}
+          className="aspect-square w-11/12 h-96"
+          alt="Article Image"
+          width={1000}
+          height={1000}
+        />
       </div>
       <div className="flex justify-between px-28">
         <div>
-          <h1 className="font-semibold text-lg">Zac Emos</h1>
-          <p>AI Is Supercharging the Capabilities of Security Cameras</p>
+          <h1 className="font-semibold text-lg">
+            {data ? data.source : "Loading..."}
+          </h1>
+          <p>{data ? data.title : "Loading..."}</p>
         </div>
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4">
           <TwitterIcon className="w-10 h-10" />
           <FacebookIcon className="w-10 h-10" />
           <EmailIcon className="w-10 h-10" />
-        </div>
+        </div> */}
       </div>
       <div className="pt-10 flex max-w-screen space-x-60 px-28 h-screen">
         <div className="flex flex-col gap-10 w-5/6">
-          <p>
-            AI security cameras are revolutionizing surveillance for both
-            consumers and businesses. One advantage is that they trigger
-            immediate alarms, recognizing intruders and initiating a response in
-            real-time. They can connect to multiple systems, such as turning on
-            lights or contacting the police, to deter criminals. AI cameras can
-            also identify specific objects, like weapons, without invasive
-            searches. They can detect unusual behavior, such as shoplifting or
-            violence, and immediately alert authorities. AI cameras are more
-            reliable than motion detection-based cameras, reducing false alarms
-            by distinguishing between animals and humans. Additionally, AI
-            surveillance requires less manual intervention, allowing for
-            around-the-clock monitoring without the need for expensive human
-            resources.
-          </p>
-          <p>
-            AI security cameras have transformed the field of surveillance by
-            providing immediate alarms and responses. With faster and more
-            accurate processing capabilities, these cameras can recognize
-            intruders and trigger appropriate actions in real-time, preventing
-            major damage. They can connect to various systems, such as
-            activating lights or contacting the police, to enhance security
-            measures. Additionally, AI cameras can identify specific objects,
-            like weapons, without invasive searches, benefiting places like
-            schools. They can also detect unusual behavior, such as shoplifting
-            or violence, and promptly alert authorities. By reducing false
-            alarms through distinguishing between animals and humans, AI cameras
-            improve comfort and safety. Moreover, the automation of AI
-            surveillance reduces the need for manual intervention, allowing for
-            continuous monitoring without the expense of human resources.
-          </p>
+          <p>{data ? data.paragraph_one : "Loading..."}</p>
+          <p>{data ? data.paragraph_two : "Loading..."}</p>
         </div>
         <div className="w-1/3 flex flex-col underline h-full">
           <h1 className="font-semibold">Related Articles</h1>
@@ -103,4 +94,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Article;

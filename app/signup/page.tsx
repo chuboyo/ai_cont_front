@@ -1,8 +1,6 @@
-"use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import { Button, Input } from "@nextui-org/react";
-import Link from "next/link";
+import SignUpForm from "../components/SignUpForm";
 const page = () => {
   return (
     <div className="flex max-w-full overflow-hidden h-screen">
@@ -29,40 +27,7 @@ const page = () => {
           <form action="" className="flex flex-col gap-y-4 max-w-sm">
             <h1 className="text-4xl font-bold">Signup</h1>
             <p>Welcome! Please enter your details to create your account.</p>
-            <Input
-              radius="none"
-              variant="bordered"
-              size="sm"
-              type="text"
-              label="Name"
-            />
-            <Input
-              radius="none"
-              variant="bordered"
-              size="sm"
-              type="email"
-              label="Email"
-            />
-            <Input
-              variant="bordered"
-              radius="none"
-              size="sm"
-              type="password"
-              label="Password"
-            />
-            <Button variant="solid" size="md" color="primary" radius="sm">
-              Create account
-            </Button>
-            <p className="text-center">OR</p>
-            <Button
-              radius="sm"
-              as={Link}
-              href="/login"
-              size="md"
-              variant="bordered"
-            >
-              Sign In
-            </Button>
+            <SignUpForm />
           </form>
         </div>
       </div>
