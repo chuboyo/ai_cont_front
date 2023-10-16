@@ -53,11 +53,6 @@ const Article = () => {
           </h1>
           <p>{data ? data.title : "Loading..."}</p>
         </div>
-        {/* <div className="flex items-center gap-4">
-          <TwitterIcon className="w-10 h-10" />
-          <FacebookIcon className="w-10 h-10" />
-          <EmailIcon className="w-10 h-10" />
-        </div> */}
       </div>
       <div className="pt-10 flex max-w-screen space-x-60 px-28 h-screen">
         <div className="flex flex-col gap-10 w-5/6">
@@ -66,27 +61,7 @@ const Article = () => {
         </div>
         <div className="w-1/3 flex flex-col underline h-full">
           <h1 className="font-semibold">Related Articles</h1>
-          <Link href={"/"}>http://asa.kh/pejkojad</Link>
-          <Link href={"/"}>http://kime.kp/na</Link>
-          <Link href={"/"}>http://sepmac.org/pe</Link>
-          <Link href={"/"}>http://illu.tz/fato</Link>
-          <Link href={"/"}>http://neh.vc/zezepso</Link>
-          <Link href={"/"}>http://mefloibo.lu/ivumajiwo</Link>
-          <Link href={"/"}>http://gasab.am/fezuc</Link>
-          <Link href={"/"}>http://ez.ee/orkukit</Link>
-          <Link href={"/"}>http://sot.vn/cajih</Link>
-          <Link href={"/"}>http://dohfov.qa/fewtik</Link>
-          <Link href={"/"}>http://suriztuf.ag/cezi</Link>
-          <Link href={"/"}>http://kok.gr/keke</Link>
-          <Link href={"/"}>http://pujif.py/wu</Link>
-          <Link href={"/"}>http://zato.bo/do</Link>
-          <Link href={"/"}>http://bivacuso.cr/iwi</Link>
-          <Link href={"/"}>http://debcoet.jp/lutco</Link>
-          <Link href={"/"}>http://kok.gr/keke</Link>
-          <Link href={"/"}>http://pujif.py/wu</Link>
-          <Link href={"/"}>http://zato.bo/do</Link>
-          <Link href={"/"}>http://bivacuso.cr/iwi</Link>
-          <Link href={"/"}>http://debcoet.jp/lutco</Link>
+          <Link href={"/"}></Link>
         </div>
       </div>
       <Footer />

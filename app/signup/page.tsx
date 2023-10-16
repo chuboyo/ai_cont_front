@@ -24,11 +24,11 @@ const page = () => {
           <p className="font-semibold text-2xl text-blue-600">Summare</p>
         </div>
         <div className="flex justify-center align-middle content-center items-center h-4/5">
-          <form action="" className="flex flex-col gap-y-4 max-w-sm">
+          <div className="flex flex-col gap-y-4 max-w-sm">
             <h1 className="text-4xl font-bold">Signup</h1>
             <p>Welcome! Please enter your details to create your account.</p>
             <SignUpForm />
-          </form>
+          </div>
         </div>
       </div>
     </div>

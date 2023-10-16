@@ -1,5 +1,6 @@
 "use client";
 import { Button, Input, Link } from "@nextui-org/react";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FieldValues, useForm } from "react-hook-form";
 const LoginForm = () => {
@@ -12,6 +13,25 @@ const LoginForm = () => {
 
   const onSubmit = async (data: FieldValues) => {
     console.log(data);
+    axios
+      .post(
+        "https://summarebackend.com/api/login/",
+        {
+          email: data.email,
+          password: data.password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     router.push("/");
   };
   return (
