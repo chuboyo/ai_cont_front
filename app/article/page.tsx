@@ -8,11 +8,26 @@ import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loader from "../components/Loader";
+import { useEffect, useState } from "react";
+
+type Article = {
+  id: number;
+  title: string;
+  date: string;
+  source: string;
+  paragraph_one: string;
+  paragraph_two: string;
+  read_count: number;
+  image_url: string;
+  category: string;
+};
 
 const Article = () => {
   const params = useSearchParams();
+  const [articles, setArticles] = useState<{ id: number; title: string }[]>([]);
+
   const { data, isLoading } = useQuery({
-    queryKey: ["article-detail"],
+    queryKey: ["article-detail", params.get("id")],
     queryFn: async () => {
       const { data } = await axios.get(
         `https://summarebackend.com/api/articles/${params.get("id")}/`
@@ -21,13 +36,29 @@ const Article = () => {
       return data;
     },
   });
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      const reponse = await axios.get(
+        "https://summarebackend.com/api/articles/"
+      );
+      setArticles(
+        reponse.data.articles.map((article: Article) => ({
+          title: article.title,
+          id: article.id,
+        }))
+      );
+    };
+
+    fetchArticles();
+  }, []);
   if (isLoading) return <Loader />;
   return (
     <div>
       <Header />
       <div className="flex flex-col items-center p-10 gap-5">
         <h2 className="text-blue-800 text-xl font-semibold">
-          {data ? data.date : "Loading..."}
+          {data ? `Published ${data.date}` : "Loading..."}
         </h2>
         <h1 className="text-4xl font-semibold">
           {data ? data.title : "Loading..."}
@@ -59,9 +90,22 @@ const Article = () => {
           <p>{data ? data.paragraph_one : "Loading..."}</p>
           <p>{data ? data.paragraph_two : "Loading..."}</p>
         </div>
-        <div className="w-1/3 flex flex-col underline h-full">
+        <div className="w-1/3 flex flex-col h-full">
           <h1 className="font-semibold">Related Articles</h1>
-          <Link href={"/"}></Link>
+          {articles.slice(0, 8).map((article) => (
+            <Link
+              key={article.id}
+              href={{
+                pathname: "/article",
+                query: {
+                  id: article.id,
+                },
+              }}
+              className="truncate2-custom text-blue-800 underline"
+            >
+              {article.title}
+            </Link>
+          ))}
         </div>
       </div>
       <Footer />

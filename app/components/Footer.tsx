@@ -8,24 +8,58 @@ const Footer = () => {
       label: "Topic",
       items: [
         {
-          href: "#",
+          href: {
+            pathname: "/article-category",
+            query: {
+              keyword: "Engineering",
+            },
+          },
           name: "Engineering",
         },
         {
-          href: "#",
+          href: {
+            pathname: "/article-category",
+            query: {
+              keyword: "Computervision",
+            },
+          },
           name: "Computer Vision",
         },
         {
-          href: "#",
+          href: {
+            pathname: "/article-category",
+            query: {
+              keyword: "Electronics",
+            },
+          },
           name: "Electronics",
         },
         {
-          href: "#",
+          href: {
+            pathname: "/article-category",
+            query: {
+              keyword: "LLMs",
+            },
+          },
           name: "LLMs",
         },
         {
-          href: "#",
+          href: {
+            pathname: "/article-category",
+            query: {
+              keyword: "Climate",
+            },
+          },
           name: "Climate",
+        },
+        {
+          href: {
+            pathname: "/article-category",
+            query: {
+              keyword: "Artificialintelligence",
+            },
+          },
+          name: "Artificial Intelligence",
         },
       ],
     },
@@ -111,7 +145,7 @@ const Footer = () => {
                 </h4>
                 {item.items.map((el, idx) => (
                   <li key={idx}>
-                    <a href={el.href}>{el.name}</a>
+                    <Link href={el.href}>{el.name}</Link>
                   </li>
                 ))}
               </ul>

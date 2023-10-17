@@ -3,6 +3,7 @@ import { Button, Input, Link } from "@nextui-org/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FieldValues, useForm } from "react-hook-form";
+import Cookies from "js-cookie";
 const LoginForm = () => {
   const router = useRouter();
   const {
@@ -28,11 +29,12 @@ const LoginForm = () => {
       )
       .then((response) => {
         console.log(response.data);
+        Cookies.set("userInfo", JSON.stringify(response.data));
+        router.push("/");
       })
       .catch((error) => {
         console.log(error);
       });
-    router.push("/");
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-4">
