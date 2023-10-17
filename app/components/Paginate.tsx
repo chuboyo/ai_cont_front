@@ -1,13 +1,24 @@
 import { Pagination } from "@nextui-org/react";
 
-export default function Paginate() {
+type PaginateProps = {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+};
+
+export default function Paginate({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginateProps) {
   return (
     <Pagination
       variant="bordered"
       color="default"
       showControls
-      total={6}
-      initialPage={1}
+      total={totalPages}
+      initialPage={currentPage}
+      onChange={(page: number) => onPageChange(page)}
     />
   );
 }

@@ -26,15 +26,18 @@ import SearchIcon from "./SearchIcon";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Header() {
-  const user = Cookies.get("userInfo");
+  const [user, setUser] = useState(null);
   const router = useRouter();
-  let username = "";
-  if (user) {
-    const name = JSON.parse(user as string);
-    username = name?.user;
-  }
+  useEffect(() => {
+    const userInfo = Cookies.get("userInfo");
+    if (userInfo) {
+      const name = JSON.parse(userInfo);
+      setUser(name?.user);
+    }
+  }, []);
 
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
@@ -51,6 +54,10 @@ export default function Header() {
   const handleLogout = () => {
     Cookies.remove("userInfo");
     router.push("/login");
+  };
+
+  const handleProfile = () => {
+    router.push("/profile");
   };
 
   return (
@@ -195,7 +202,7 @@ export default function Header() {
                   radius="sm"
                   variant="light"
                 >
-                  {username}
+                  {user}
                 </Button>
               </DropdownTrigger>
               <DropdownMenu
@@ -206,7 +213,7 @@ export default function Header() {
                 }}
               >
                 <DropdownItem key="profile" startContent={icons.user}>
-                  Profile
+                  <button onClick={handleProfile}>Profile</button>
                 </DropdownItem>
                 <DropdownItem key="logout" startContent={icons.lock}>
                   <button onClick={handleLogout}>Logout</button>

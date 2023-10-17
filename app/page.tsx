@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Paginate from "./components/Paginate";
 import Loader from "./components/Loader";
+import { useState } from "react";
 
 type Article = {
   id: number;
@@ -22,11 +23,13 @@ type Article = {
   category: string;
 };
 export default function Home() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
   const { data } = useQuery({
-    queryKey: ["articles"],
+    queryKey: ["articles", currentPage],
     queryFn: async () => {
       const response = await axios.get(
-        `https://summarebackend.com/api/articles/${" "}`
+        `https://summarebackend.com/api/articles/?page=${currentPage}`
       );
       console.log(response.data);
       return response.data;
@@ -37,7 +40,13 @@ export default function Home() {
     return <Loader />;
   }
 
-  const articles = data.articles;
+  const articles: Article[] = data.articles;
+  const totalPages = Math.ceil(articles.length / itemsPerPage);
+
+  const pages = [];
+  for (let i = 0; i < articles.length; i += itemsPerPage) {
+    pages.push(articles.slice(i, i + itemsPerPage));
+  }
 
   return (
     <div>
@@ -79,7 +88,7 @@ export default function Home() {
           <h1 className="text-3xl">All AI Articles</h1>
         </div>
         <div className="flex flex-wrap gap-10 px-28">
-          {articles.slice(6).map((article: Article) => (
+          {pages[currentPage - 1].map((article: Article) => (
             <ArticleCard
               key={article.id}
               id={article.id}
@@ -93,7 +102,11 @@ export default function Home() {
         </div>
       </div>
       <div className="flex items-center justify-center pt-10">
-        <Paginate />
+        <Paginate
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
       <Footer />
     </div>
