@@ -24,11 +24,22 @@ const ArticleCategory = () => {
   const { data } = useQuery({
     queryKey: ["articles"],
     queryFn: async () => {
-      const response = await axios.get(
+      let response = await axios.get(
         `https://summarebackend.com/api/articles/`
       );
-      console.log(response.data);
-      return response.data;
+      let data = response.data;
+      let articles = data.articles;
+
+      while (data.page < data.pages) {
+        response = await axios.get(
+          `https://summarebackend.com/api/articles/?page=${data.page + 1}`
+        );
+        data = response.data;
+        articles = [...articles, ...data.articles];
+      }
+
+      console.log(articles);
+      return { articles };
     },
   });
 
