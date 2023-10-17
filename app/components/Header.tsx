@@ -29,7 +29,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type HeaderProps = {
-  setSearchTerm: (searchTerm: string) => void;
+  setSearchTerm?: (searchTerm: string) => void;
 };
 
 export default function Header({ setSearchTerm }: HeaderProps) {
@@ -185,7 +185,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               inputWrapper:
                 "h-full font-normal text-default-500 dark:bg-default-500/20",
             }}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm && setSearchTerm(e.target.value)}
             radius="none"
             variant="bordered"
             placeholder="Type to search..."

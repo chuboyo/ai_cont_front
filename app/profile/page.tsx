@@ -5,10 +5,15 @@ import Header from "../components/Header";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const ProfilePage = () => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
+  const [token, setToken] = useState(null);
+  const router = useRouter();
+
   const userInfo = Cookies.get("userInfo");
   const defaultValues = userInfo ? JSON.parse(userInfo) : {};
 
@@ -18,6 +23,7 @@ const ProfilePage = () => {
       const user = JSON.parse(userInfo);
       setName(user?.user);
       setEmail(user?.email);
+      setToken(user?.token);
     }
   }, []);
 
@@ -25,13 +31,31 @@ const ProfilePage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({});
+  } = useForm();
 
   const onSubmit = async (data: FieldValues) => {
     console.log(data);
-    // await axios.post('https://summarebackend.com', {
-
-    // })
+    axios
+      .post(
+        "https://summarebackend.com/api/change_password/",
+        {
+          old_password: data.oldPassword,
+          new_password: data.newPassword,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -44,7 +68,7 @@ const ProfilePage = () => {
         >
           <h1 className="text-4xl font-bold">Profile Settings</h1>
           <Input
-            {...register("name", { required: true })}
+            {...register("name")}
             radius="none"
             variant="bordered"
             size="sm"
