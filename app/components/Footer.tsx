@@ -101,7 +101,7 @@ const Footer = () => {
 
   return (
     <>
-      <section className="py-10 px-10 bg-[#F6F9FB] lg:mt-28">
+      <section className="py-10 px-10 bg-[#F6F9FB] lg: mt-28">
         <div className="max-w-full mx-auto px-10 justify-between items-center gap-12 md:px-8 md:flex">
           <div className="flex-1 max-w-full">
             <h3 className="text-xl">Join our newsletter</h3>

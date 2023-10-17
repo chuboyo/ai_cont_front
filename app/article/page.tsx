@@ -85,7 +85,7 @@ const Article = () => {
           <p>{data ? data.title : "Loading..."}</p>
         </div>
       </div>
-      <div className="pt-10 flex max-w-screen space-x-60 px-28 h-screen">
+      <div className="pt-10 flex max-w-screen space-x-60 px-28">
         <div className="flex flex-col gap-10 w-5/6">
           <p>{data ? data.paragraph_one : "Loading..."}</p>
           <p>{data ? data.paragraph_two : "Loading..."}</p>
