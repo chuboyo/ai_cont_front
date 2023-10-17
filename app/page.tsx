@@ -59,12 +59,47 @@ export default function Home() {
   return (
     <div>
       <Header setSearchTerm={setSearchTerm} />
-      <div className="max-w-full px-28 py-10">
+      {searchTerm === "" && (
+        <div className="max-w-full px-28 py-10">
+          <h1 className="text-3xl">Trending AI Articles</h1>
+        </div>
+      )}
+      {/* <div className="max-w-full px-28 py-10">
         <h1 className="text-3xl">Trending AI Articles</h1>
-      </div>
+      </div> */}
 
       <div className="flex max-w-full justify-between">
-        <div className="flex w-1/2 flex-col ps-28 pe-10">
+        {searchTerm === "" && (
+          <>
+            <div className="flex w-1/2 flex-col ps-28 pe-10">
+              {articles.slice(0, 2).map((article: Article) => (
+                <ArticleOne
+                  key={article.id}
+                  id={article.id}
+                  image_url={article.image_url}
+                  title={article.title}
+                  date={new Date(article.date).toLocaleDateString()}
+                  description={article.paragraph_one}
+                  badge={article.category}
+                />
+              ))}
+            </div>
+            <div className="flex flex-col w-1/2 gap-y-5">
+              {articles.slice(2, 6).map((article: Article) => (
+                <ArticleTwo
+                  key={article.id}
+                  id={article.id}
+                  image_url={article.image_url}
+                  title={article.title}
+                  date={new Date(article.date).toLocaleDateString()}
+                  description={article.paragraph_one}
+                  badge={article.category}
+                />
+              ))}
+            </div>
+          </>
+        )}
+        {/* <div className="flex w-1/2 flex-col ps-28 pe-10">
           {articles.slice(0, 2).map((article: Article) => (
             <ArticleOne
               key={article.id}
@@ -76,8 +111,8 @@ export default function Home() {
               badge={article.category}
             />
           ))}
-        </div>
-        <div className="flex flex-col w-1/2 gap-y-5">
+        </div> */}
+        {/* <div className="flex flex-col w-1/2 gap-y-5">
           {articles.slice(2, 6).map((article: Article) => (
             <ArticleTwo
               key={article.id}
@@ -89,13 +124,18 @@ export default function Home() {
               badge={article.category}
             />
           ))}
-        </div>
+        </div> */}
       </div>
       <div>
-        <div className="max-w-full px-28 py-10">
+        {searchTerm === "" && (
+          <div className="max-w-full px-28 py-10">
+            <h1 className="text-3xl">All AI Articles</h1>
+          </div>
+        )}
+        {/* <div className="max-w-full px-28 py-10">
           <h1 className="text-3xl">All AI Articles</h1>
-        </div>
-        <div className="flex flex-wrap gap-10 px-28">
+        </div> */}
+        <div className="flex flex-wrap gap-10 px-28 py-10">
           {filteredArticles.map((article: Article) => (
             <ArticleCard
               key={article.id}
