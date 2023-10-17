@@ -24,6 +24,7 @@ type Article = {
 };
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
   const itemsPerPage = 3;
   const { data } = useQuery({
     queryKey: ["articles", currentPage],
@@ -43,6 +44,13 @@ export default function Home() {
   const articles: Article[] = data.articles;
   const totalPages = Math.ceil(articles.length / itemsPerPage);
 
+  let filteredArticles = articles;
+  if (searchTerm !== "") {
+    filteredArticles = articles.filter((article) =>
+      article.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
   const pages = [];
   for (let i = 0; i < articles.length; i += itemsPerPage) {
     pages.push(articles.slice(i, i + itemsPerPage));
@@ -50,7 +58,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      <Header setSearchTerm={setSearchTerm} />
       <div className="max-w-full px-28 py-10">
         <h1 className="text-3xl">Trending AI Articles</h1>
       </div>
@@ -88,7 +96,7 @@ export default function Home() {
           <h1 className="text-3xl">All AI Articles</h1>
         </div>
         <div className="flex flex-wrap gap-10 px-28">
-          {pages[currentPage - 1].map((article: Article) => (
+          {filteredArticles.map((article: Article) => (
             <ArticleCard
               key={article.id}
               id={article.id}

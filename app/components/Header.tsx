@@ -28,7 +28,11 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Header() {
+type HeaderProps = {
+  setSearchTerm: (searchTerm: string) => void;
+};
+
+export default function Header({ setSearchTerm }: HeaderProps) {
   const [user, setUser] = useState(null);
   const router = useRouter();
   useEffect(() => {
@@ -181,6 +185,7 @@ export default function Header() {
               inputWrapper:
                 "h-full font-normal text-default-500 dark:bg-default-500/20",
             }}
+            onChange={(e) => setSearchTerm(e.target.value)}
             radius="none"
             variant="bordered"
             placeholder="Type to search..."
