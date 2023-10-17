@@ -60,7 +60,7 @@ const Article = () => {
         <h2 className="text-blue-800 text-xl font-semibold">
           {data ? `Published ${data.date}` : "Loading..."}
         </h2>
-        <h1 className="text-4xl font-semibold">
+        <h1 className="text-4xl font-semibold text-center">
           {data ? data.title : "Loading..."}
         </h1>
         <p className="px-10 text-xl text-ellipsis text-center truncate2-custom">
