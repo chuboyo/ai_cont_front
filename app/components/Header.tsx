@@ -217,11 +217,25 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                   base: "gap-4",
                 }}
               >
-                <DropdownItem key="profile" startContent={icons.user}>
-                  <button onClick={handleProfile}>Profile</button>
+                <DropdownItem
+                  as={Button}
+                  onClick={handleProfile}
+                  key="profile"
+                  startContent={icons.user}
+                  className="text-left"
+                  variant="light"
+                >
+                  Profile
                 </DropdownItem>
-                <DropdownItem key="logout" startContent={icons.lock}>
-                  <button onClick={handleLogout}>Logout</button>
+                <DropdownItem
+                  as={Button}
+                  onClick={handleLogout}
+                  className="text-left"
+                  key="logout"
+                  startContent={icons.lock}
+                  variant="light"
+                >
+                  Logout
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
