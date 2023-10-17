@@ -84,15 +84,15 @@ const Footer = () => {
       label: "Socials",
       items: [
         {
-          href: "#",
+          href: "https://twitter.com/share",
           name: "Twitter",
         },
         {
-          href: "#",
+          href: "https://linkedin.com/share",
           name: "Linkedin",
         },
         {
-          href: "#",
+          href: "https://facebook.com/sharer",
           name: "Facebook",
         },
       ],
@@ -160,7 +160,7 @@ const Footer = () => {
         <div className="mt-6 sm:mt-0">
           <ul className="flex items-center space-x-4">
             <li className="w-10 border rounded-full flex items-center justify-center">
-              <a href="#">
+              <a href="https://twitter.com/share" target="_blank">
                 <svg
                   className="svg-icon w-6 h-6 text-gray-400"
                   viewBox="0 0 20 20"
@@ -174,7 +174,7 @@ const Footer = () => {
             </li>
 
             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-              <a href="#">
+              <a href="https://facebook.com/sharer" target="_blank">
                 <svg
                   className="svg-icon w-6 h-6 text-gray-400"
                   viewBox="0 0 20 20"
@@ -187,7 +187,7 @@ const Footer = () => {
               </a>
             </li>
 
-            <li className="w-10 h-10 border rounded-full flex items-center justify-center">
+            {/* <li className="w-10 h-10 border rounded-full flex items-center justify-center">
               <a href="#">
                 <svg
                   className="svg-icon w-6 h-6 text-gray-400"
@@ -199,7 +199,7 @@ const Footer = () => {
                   ></path>
                 </svg>
               </a>
-            </li>
+            </li> */}
           </ul>
           <style jsx>{`
             .svg-icon path,

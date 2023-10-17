@@ -45,7 +45,7 @@ const ArticleCategory = () => {
       <>
         <Header />
         <div className="flex flex-wrap gap-10 px-28 py-10">
-          <p>No articles found</p>
+          <p className="text-3xl text-center">No articles found</p>
         </div>
         <Footer />
       </>
