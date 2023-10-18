@@ -10,6 +10,10 @@ import {
   Dropdown,
   DropdownMenu,
   Input,
+  Link,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
 } from "@nextui-org/react";
 import {
   ChevronDown,
@@ -23,10 +27,10 @@ import {
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import SearchIcon from "./SearchIcon";
-import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { default as NextLink } from "next/link";
 
 type HeaderProps = {
   setSearchTerm?: (searchTerm: string) => void;
@@ -34,6 +38,8 @@ type HeaderProps = {
 
 export default function Header({ setSearchTerm }: HeaderProps) {
   const [user, setUser] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const router = useRouter();
   useEffect(() => {
     const userInfo = Cookies.get("userInfo");
@@ -42,6 +48,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
       setUser(name?.user);
     }
   }, []);
+
+  const menuItems = [<h1 key={1}>Hello</h1>];
 
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
@@ -81,7 +89,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
           </div>
         </Link>
         <Dropdown>
-          <NavbarItem className="hidden lg:block">
+          <NavbarItem className="hidden xl:block">
             <DropdownTrigger>
               <Button
                 disableRipple
@@ -102,7 +110,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
             }}
           >
             <DropdownItem key="engineering" startContent={icons.scale}>
-              <Link
+              <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -111,10 +119,10 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                 }}
               >
                 Engineering
-              </Link>
+              </NextLink>
             </DropdownItem>
             <DropdownItem key="computer_vision" startContent={icons.activity}>
-              <Link
+              <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -123,10 +131,10 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                 }}
               >
                 Computer Vision
-              </Link>
+              </NextLink>
             </DropdownItem>
             <DropdownItem key="electronics" startContent={icons.flash}>
-              <Link
+              <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -135,10 +143,10 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                 }}
               >
                 Electronics
-              </Link>
+              </NextLink>
             </DropdownItem>
             <DropdownItem key="llms" startContent={icons.server}>
-              <Link
+              <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -147,10 +155,10 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                 }}
               >
                 LLMs
-              </Link>
+              </NextLink>
             </DropdownItem>
             <DropdownItem key="ai" startContent={icons.server}>
-              <Link
+              <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -159,10 +167,10 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                 }}
               >
                 Artificial Intelligence
-              </Link>
+              </NextLink>
             </DropdownItem>
             <DropdownItem key="climate" startContent={icons.user}>
-              <Link
+              <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -171,7 +179,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                 }}
               >
                 Climate
-              </Link>
+              </NextLink>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -246,7 +254,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
             </Link>
           )}
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="hidden lg:block">
           <Button
             as={Link}
             color="primary"
@@ -257,7 +265,31 @@ export default function Header({ setSearchTerm }: HeaderProps) {
             Subscribe
           </Button>
         </NavbarItem>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden"
+        />
       </NavbarContent>
+      <NavbarMenu className="px-10 py-5">
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link
+              color={
+                index === 2
+                  ? "primary"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
+              }
+              className="w-full"
+              href="#"
+              size="lg"
+            >
+              {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 }

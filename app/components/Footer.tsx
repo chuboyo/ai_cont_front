@@ -140,7 +140,7 @@ const Footer = () => {
           <div className="flex-1 mt-10 align-middle justify-between sm:flex md:space-y-0 md:mt-0">
             {footerNavs.map((item, idx) => (
               <ul className="space-y-4" key={idx}>
-                <h4 className="text-gray-800 font-medium text-lg">
+                <h4 className="text-gray-800 font-medium text-lg pt-5 lg:pt-0">
                   {item.label}
                 </h4>
                 {item.items.map((el, idx) => (

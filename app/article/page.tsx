@@ -60,7 +60,7 @@ const Article = () => {
         <h2 className="text-blue-800 text-xl font-semibold">
           {data ? `Published ${data.date}` : "Loading..."}
         </h2>
-        <h1 className="text-4xl font-semibold text-center">
+        <h1 className="lg:text-4xl md:text-4xl text-2xl font-semibold text-center">
           {data ? data.title : "Loading..."}
         </h1>
         <p className="px-10 text-xl text-ellipsis text-center truncate2-custom">
@@ -85,12 +85,12 @@ const Article = () => {
           <p>{data ? data.title : "Loading..."}</p>
         </div>
       </div>
-      <div className="pt-10 flex max-w-screen gap-10 px-20 lg:px-28 lg:gap-14">
+      <div className="pt-10 flex flex-wrap max-w-screen gap-10 px-20 lg:flex-nowrap lg:px-28 lg:gap-14">
         <div className="flex flex-col gap-10 w-5/6">
           <p>{data ? data.paragraph_one : "Loading..."}</p>
           <p>{data ? data.paragraph_two : "Loading..."}</p>
         </div>
-        <div className="w-1/3 flex flex-col h-full">
+        <div className="flex flex-col h-full">
           <h1 className="font-semibold">Related Articles</h1>
           {articles.slice(0, 8).map((article) => (
             <Link
