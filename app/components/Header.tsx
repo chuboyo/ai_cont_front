@@ -104,12 +104,15 @@ export default function Header({ setSearchTerm }: HeaderProps) {
           </NavbarItem>
           <DropdownMenu
             aria-label="Explore by topic"
-            className="w-[340px]"
             itemClasses={{
               base: "gap-4",
             }}
           >
-            <DropdownItem key="engineering" startContent={icons.scale}>
+            <DropdownItem
+              className=""
+              key="engineering"
+              startContent={icons.scale}
+            >
               <NextLink
                 href={{
                   pathname: "/article-category",
@@ -117,6 +120,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                     keyword: "Engineering",
                   },
                 }}
+                className=""
               >
                 Engineering
               </NextLink>
