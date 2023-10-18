@@ -124,7 +124,7 @@ const Footer = () => {
         </div>
       </section>
       <footer className="text-gray-500 bg-white max-w-screen-xl mx-auto md:px-8 p-20">
-        <div className="gap-10 justify-between md:flex">
+        <div className="lg:gap-10 justify-between md:flex">
           <div className="">
             <div className="max-w-xs">
               <div className="flex">

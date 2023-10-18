@@ -3,13 +3,13 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ArticleOne from "./components/ArticleOne";
 
-import ArticleTwo from "./components/ArticleTwo";
 import ArticleCard from "./components/ArticleCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Paginate from "./components/Paginate";
 import Loader from "./components/Loader";
 import { useState } from "react";
+import ArticleTwo from "./components/ArticleTwo";
 
 type Article = {
   id: number;
@@ -60,18 +60,15 @@ export default function Home() {
     <div>
       <Header setSearchTerm={setSearchTerm} />
       {searchTerm === "" && (
-        <div className="max-w-full px-28 py-10">
+        <div className="max-w-full p-10 lg:px-28">
           <h1 className="text-3xl">Trending AI Articles</h1>
         </div>
       )}
-      {/* <div className="max-w-full px-28 py-10">
-        <h1 className="text-3xl">Trending AI Articles</h1>
-      </div> */}
 
-      <div className="flex max-w-full justify-between">
+      <div className="flex max-w-full justify-between px-10 gap-x-5 flex-wrap lg:flex-nowrap lg:px-28 lg:gap-x-10">
         {searchTerm === "" && (
           <>
-            <div className="flex w-1/2 flex-col ps-28 pe-10">
+            <div className="flex flex-col w-full">
               {articles.slice(0, 2).map((article: Article) => (
                 <ArticleOne
                   key={article.id}
@@ -84,7 +81,7 @@ export default function Home() {
                 />
               ))}
             </div>
-            <div className="flex flex-col w-1/2 gap-y-5">
+            <div className="flex flex-col w-full">
               {articles.slice(2, 6).map((article: Article) => (
                 <ArticleTwo
                   key={article.id}
@@ -128,14 +125,11 @@ export default function Home() {
       </div>
       <div>
         {searchTerm === "" && (
-          <div className="max-w-full px-28 py-10">
+          <div className="max-w-full p-10 lg:px-28">
             <h1 className="text-3xl">All AI Articles</h1>
           </div>
         )}
-        {/* <div className="max-w-full px-28 py-10">
-          <h1 className="text-3xl">All AI Articles</h1>
-        </div> */}
-        <div className="flex flex-wrap gap-10 px-28 py-10">
+        <div className="flex flex-wrap gap-10 p-10 lg:px-28">
           {filteredArticles.map((article: Article) => (
             <ArticleCard
               key={article.id}

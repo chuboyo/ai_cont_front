@@ -77,7 +77,7 @@ const Article = () => {
           height={1000}
         />
       </div>
-      <div className="flex justify-between px-28">
+      <div className="flex justify-between px-20 lg:px-28">
         <div>
           <h1 className="font-semibold text-lg">
             {data ? data.source : "Loading..."}
@@ -85,7 +85,7 @@ const Article = () => {
           <p>{data ? data.title : "Loading..."}</p>
         </div>
       </div>
-      <div className="pt-10 flex max-w-screen space-x-60 px-28">
+      <div className="pt-10 flex max-w-screen gap-10 px-20 lg:px-28 lg:gap-14">
         <div className="flex flex-col gap-10 w-5/6">
           <p>{data ? data.paragraph_one : "Loading..."}</p>
           <p>{data ? data.paragraph_two : "Loading..."}</p>

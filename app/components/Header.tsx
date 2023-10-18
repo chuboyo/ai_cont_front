@@ -68,7 +68,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
     <Navbar
       isBordered
       classNames={{
-        wrapper: "px-5 py-10 max-w-[1300px] mx-auto",
+        base: "py-3 px-5 max-w-screen lg:px-28",
+        wrapper: "max-w-full",
       }}
       shouldHideOnScroll
     >
@@ -80,7 +81,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
           </div>
         </Link>
         <Dropdown>
-          <NavbarItem>
+          <NavbarItem className="hidden lg:block">
             <DropdownTrigger>
               <Button
                 disableRipple
