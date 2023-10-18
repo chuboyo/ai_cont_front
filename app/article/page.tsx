@@ -71,7 +71,7 @@ const Article = () => {
         </Chip>
         <Image
           src={data ? data.image_url : "/"}
-          className="aspect-square w-11/12 h-96"
+          className="h-unit-7xl w-11/12 object-cover"
           alt="Article Image"
           width={1000}
           height={1000}
