@@ -271,24 +271,21 @@ export default function Header({ setSearchTerm }: HeaderProps) {
         />
       </NavbarContent>
       <NavbarMenu className="px-10 py-5">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        {/* <NavbarMenuItem>
+          <Link color="primary" href="/under-construction">
+            Subscribe
+          </Link>
+        </NavbarMenuItem> */}
+        <NavbarMenuItem>
+          <Link color="primary" href="/under-construction">
+            Subscribe
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link color="primary" href="/login">
+            Login
+          </Link>
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );

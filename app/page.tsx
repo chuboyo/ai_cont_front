@@ -130,7 +130,7 @@ export default function Home() {
           </div>
         )}
         <div className="flex flex-wrap gap-10 p-10 lg:px-28">
-          {filteredArticles.map((article: Article) => (
+          {filteredArticles.slice(6, 12).map((article: Article) => (
             <ArticleCard
               key={article.id}
               id={article.id}
