@@ -36,8 +36,14 @@ export default function Home() {
 
   let filteredArticles = articles;
   if (searchTerm !== "") {
+    const searchWords = searchTerm.toLowerCase().split(" ");
     filteredArticles = articles.filter((article) =>
-      article.title.toLowerCase().includes(searchTerm.toLowerCase())
+      searchWords.some(
+        (word) =>
+          article.title.toLowerCase().includes(word) ||
+          article.category.toLowerCase().includes(word) ||
+          article.paragraph_one.toLowerCase().includes(word)
+      )
     );
   }
 
@@ -86,32 +92,6 @@ export default function Home() {
             </div>
           </>
         )}
-        {/* <div className="flex w-1/2 flex-col ps-28 pe-10">
-          {articles.slice(0, 2).map((article: Article) => (
-            <ArticleOne
-              key={article.id}
-              id={article.id}
-              image_url={article.image_url}
-              title={article.title}
-              date={new Date(article.date).toLocaleDateString()}
-              description={article.paragraph_one}
-              badge={article.category}
-            />
-          ))}
-        </div> */}
-        {/* <div className="flex flex-col w-1/2 gap-y-5">
-          {articles.slice(2, 6).map((article: Article) => (
-            <ArticleTwo
-              key={article.id}
-              id={article.id}
-              image_url={article.image_url}
-              title={article.title}
-              date={new Date(article.date).toLocaleDateString()}
-              description={article.paragraph_one}
-              badge={article.category}
-            />
-          ))}
-        </div> */}
       </div>
       <div>
         {searchTerm === "" && (
