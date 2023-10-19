@@ -49,8 +49,6 @@ export default function Header({ setSearchTerm }: HeaderProps) {
     }
   }, []);
 
-  const menuItems = [<h1 key={1}>Hello</h1>];
-
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -275,19 +273,119 @@ export default function Header({ setSearchTerm }: HeaderProps) {
         />
       </NavbarContent>
       <NavbarMenu className="px-10 py-5">
+        <p className="font-semibold">Explore by topic</p>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Engineering",
+              },
+            }}
+          >
+            Engineering
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Computervision",
+              },
+            }}
+          >
+            Computer Vision
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Electronics",
+              },
+            }}
+          >
+            Electronics
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "LLMs",
+              },
+            }}
+          >
+            LLMs
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Artificialintelligence",
+              },
+            }}
+          >
+            Artificial Intelligence
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Climate",
+              },
+            }}
+          >
+            Climate
+          </NextLink>
+        </NavbarMenuItem>
         {/* <NavbarMenuItem>
           <Link color="primary" href="/under-construction">
             Subscribe
           </Link>
         </NavbarMenuItem> */}
         <NavbarMenuItem>
-          <Link color="primary" href="/under-construction">
-            Subscribe
-          </Link>
+          {user ? (
+            <>
+              <p className="font-semibold">{user}</p>
+              <Link color="foreground" href="/profile">
+                Profile
+              </Link>
+              <br />
+              <Link color="foreground" onClick={handleLogout}>
+                Logout
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link color="foreground" href="/login">
+                Login
+              </Link>
+            </>
+          )}
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <Link color="primary" href="/login">
-            Login
+          <Link color="foreground" href="/under-construction">
+            Subscribe
           </Link>
         </NavbarMenuItem>
       </NavbarMenu>

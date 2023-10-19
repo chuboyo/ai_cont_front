@@ -61,7 +61,7 @@ const ProfilePage = () => {
   return (
     <div>
       <Header />
-      <div className="h-screen w-1/4 flex justify-center mx-auto">
+      <div className="h-screen w-1/2 lg:w-1/4 flex justify-center mx-auto">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex w-full flex-col gap-y-4 pt-10"

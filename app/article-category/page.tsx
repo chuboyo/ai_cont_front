@@ -65,7 +65,7 @@ const ArticleCategory = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-wrap gap-10 px-28 py-10">
+      <div className="flex flex-wrap gap-10 px-10 lg:px-28 py-5 lg:py-10">
         {articles.map((article: Article) => (
           <ArticleCard
             key={article.id}
