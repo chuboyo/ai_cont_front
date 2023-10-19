@@ -107,11 +107,12 @@ export default function Header({ setSearchTerm }: HeaderProps) {
             }}
           >
             <DropdownItem
-              className=""
+              as={NextLink}
+              href="/article-category?keyword=Engineering"
               key="engineering"
               startContent={icons.scale}
             >
-              <NextLink
+              {/* <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -119,60 +120,85 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                   },
                 }}
                 className=""
-              >
-                Engineering
-              </NextLink>
+              > */}
+              Engineering
+              {/* </NextLink> */}
             </DropdownItem>
-            <DropdownItem key="computer_vision" startContent={icons.activity}>
-              <NextLink
+            <DropdownItem
+              as={NextLink}
+              href="/article-category?keyword=Computervision"
+              key="computer_vision"
+              startContent={icons.activity}
+            >
+              {/* <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
                     keyword: "Computervision",
                   },
                 }}
-              >
-                Computer Vision
-              </NextLink>
+              > */}
+              Computer Vision
+              {/* </NextLink> */}
             </DropdownItem>
-            <DropdownItem key="electronics" startContent={icons.flash}>
-              <NextLink
+            <DropdownItem
+              as={NextLink}
+              key="electronics"
+              href="/article-category?keyword=Electronics"
+              startContent={icons.flash}
+            >
+              {/* <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
                     keyword: "Electronics",
                   },
                 }}
-              >
-                Electronics
-              </NextLink>
+              > */}
+              Electronics
+              {/* </NextLink> */}
             </DropdownItem>
-            <DropdownItem key="llms" startContent={icons.server}>
-              <NextLink
+            <DropdownItem
+              as={NextLink}
+              key="llms"
+              href="/article-category?keyword=LLMs"
+              startContent={icons.server}
+            >
+              {/* <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
                     keyword: "LLMs",
                   },
                 }}
-              >
-                LLMs
-              </NextLink>
+              >*/}
+              LLMs
+              {/* </NextLink>  */}
             </DropdownItem>
-            <DropdownItem key="ai" startContent={icons.server}>
-              <NextLink
+            <DropdownItem
+              as={NextLink}
+              href="/article-category?keyword=Artificialintelligence"
+              key="ai"
+              startContent={icons.server}
+            >
+              {/* <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
                     keyword: "Artificialintelligence",
                   },
                 }}
-              >
-                Artificial Intelligence
-              </NextLink>
+              > */}
+              Artificial Intelligence
+              {/* </NextLink> */}
             </DropdownItem>
-            <DropdownItem key="climate" startContent={icons.user}>
-              <NextLink
+            <DropdownItem
+              as={NextLink}
+              key="climate"
+              href="/article-category?keyword=Climate"
+              startContent={icons.user}
+            >
+              {/* <NextLink
                 href={{
                   pathname: "/article-category",
                   query: {
@@ -180,8 +206,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                   },
                 }}
               >
-                Climate
-              </NextLink>
+            </NextLink> */}
+              Climate
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
