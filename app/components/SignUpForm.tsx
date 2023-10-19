@@ -1,8 +1,16 @@
 "use client";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input, Link } from "@nextui-org/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FieldValues, useForm } from "react-hook-form";
+import z from "zod";
+
+const signupSchema = z.object({
+  name: z.string().min(4),
+  email: z.string().email(),
+  password: z.string().min(6, "Password must be atleast 6 characters long"),
+});
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -10,7 +18,9 @@ const SignUpForm = () => {
     register,
     handleSubmit,
     formState: { errors, isLoading },
-  } = useForm();
+  } = useForm({
+    resolver: zodResolver(signupSchema),
+  });
 
   const onSubmit = async (data: FieldValues) => {
     console.log(data);

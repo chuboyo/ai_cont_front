@@ -4,13 +4,22 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FieldValues, useForm } from "react-hook-form";
 import Cookies from "js-cookie";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6, "Password must be atleast 6 characters long"),
+});
 const LoginForm = () => {
   const router = useRouter();
   const {
     register,
     handleSubmit,
-    formState: { errors, isLoading },
-  } = useForm();
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(loginSchema),
+  });
 
   const onSubmit = async (data: FieldValues) => {
     console.log(data);
@@ -64,7 +73,7 @@ const LoginForm = () => {
         Forgot Password?
       </Link>
       <Button
-        // href="/"
+        disabled={isSubmitting}
         variant="solid"
         size="md"
         color="primary"
