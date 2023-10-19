@@ -49,7 +49,7 @@ export default function ArticleCard(props: ArticleProps) {
             {props.description ? props.description : "Loading..."}
           </p>
           <Chip color="primary" variant="flat">
-            {props.badge ? props.badge : "Loading..."}
+            {props.badge ? props.badge : "Artificialintelligence"}
           </Chip>
         </CardBody>
       </Card>

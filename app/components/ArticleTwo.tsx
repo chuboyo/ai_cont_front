@@ -36,7 +36,7 @@ const ArticleTwo = (props: ArticleProps) => {
           <p className="text-gray-600 text-sm">{props.date}</p>
           <p className="truncate2-custom">{props.description}</p>
           <Chip color="primary" variant="flat">
-            {props.badge}
+            {props.badge ? props.badge : "Artificialintelligence"}
           </Chip>
         </div>
       </div>

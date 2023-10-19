@@ -67,7 +67,7 @@ const Article = () => {
           {data ? data.paragraph_one : "Loading..."}
         </p>
         <Chip color="primary" variant="flat">
-          {data ? data.category : "Loading..."}
+          {data ? data.category : "Artificialintelligence"}
         </Chip>
         <Image
           src={data ? data.image_url : "/"}
