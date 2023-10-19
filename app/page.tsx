@@ -2,7 +2,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ArticleOne from "./components/ArticleOne";
-
 import ArticleCard from "./components/ArticleCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -10,18 +9,9 @@ import Paginate from "./components/Paginate";
 import Loader from "./components/Loader";
 import { useState } from "react";
 import ArticleTwo from "./components/ArticleTwo";
+import AdComponent from "./components/AdComponent";
+import { ArticleType } from "./types/ArticleType";
 
-type Article = {
-  id: number;
-  title: string;
-  date: string;
-  source: string;
-  paragraph_one: string;
-  paragraph_two: string;
-  read_count: number;
-  image_url: string;
-  category: string;
-};
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,7 +31,7 @@ export default function Home() {
     return <Loader />;
   }
 
-  const articles: Article[] = data.articles;
+  const articles: ArticleType[] = data.articles;
   const totalPages = Math.ceil(articles.length / itemsPerPage);
 
   let filteredArticles = articles;
@@ -69,7 +59,7 @@ export default function Home() {
         {searchTerm === "" && (
           <>
             <div className="flex flex-col w-full">
-              {articles.slice(0, 2).map((article: Article) => (
+              {articles.slice(0, 2).map((article: ArticleType) => (
                 <ArticleOne
                   key={article.id}
                   id={article.id}
@@ -82,7 +72,7 @@ export default function Home() {
               ))}
             </div>
             <div className="flex flex-col w-full">
-              {articles.slice(2, 6).map((article: Article) => (
+              {articles.slice(2, 6).map((article: ArticleType) => (
                 <ArticleTwo
                   key={article.id}
                   id={article.id}
@@ -130,7 +120,7 @@ export default function Home() {
           </div>
         )}
         <div className="flex flex-wrap gap-10 p-10 lg:px-28">
-          {filteredArticles.slice(6, 12).map((article: Article) => (
+          {filteredArticles.slice(6, 12).map((article: ArticleType) => (
             <ArticleCard
               key={article.id}
               id={article.id}
@@ -150,6 +140,7 @@ export default function Home() {
           onPageChange={setCurrentPage}
         />
       </div>
+      <AdComponent />
       <Footer />
     </div>
   );

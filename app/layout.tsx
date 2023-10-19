@@ -39,6 +39,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
       <body className={inter.className}>
         <QueryProvider>
           <NextProvider>{children}</NextProvider>

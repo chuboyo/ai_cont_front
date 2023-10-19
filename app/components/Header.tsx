@@ -31,15 +31,12 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { default as NextLink } from "next/link";
-
 type HeaderProps = {
   setSearchTerm?: (searchTerm: string) => void;
 };
-
 export default function Header({ setSearchTerm }: HeaderProps) {
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const router = useRouter();
   useEffect(() => {
     const userInfo = Cookies.get("userInfo");
@@ -48,7 +45,6 @@ export default function Header({ setSearchTerm }: HeaderProps) {
       setUser(name?.user);
     }
   }, []);
-
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -60,16 +56,13 @@ export default function Header({ setSearchTerm }: HeaderProps) {
     server: <Server className="text-success" fill="currentColor" size={30} />,
     user: <TagUser className="text-danger" fill="currentColor" size={30} />,
   };
-
   const handleLogout = () => {
     Cookies.remove("userInfo");
     router.push("/login");
   };
-
   const handleProfile = () => {
     router.push("/profile");
   };
-
   return (
     <Navbar
       isBordered
@@ -112,17 +105,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               key="engineering"
               startContent={icons.scale}
             >
-              {/* <NextLink
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Engineering",
-                  },
-                }}
-                className=""
-              > */}
               Engineering
-              {/* </NextLink> */}
             </DropdownItem>
             <DropdownItem
               as={NextLink}
@@ -130,16 +113,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               key="computer_vision"
               startContent={icons.activity}
             >
-              {/* <NextLink
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Computervision",
-                  },
-                }}
-              > */}
               Computer Vision
-              {/* </NextLink> */}
             </DropdownItem>
             <DropdownItem
               as={NextLink}
@@ -147,16 +121,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               href="/article-category?keyword=Electronics"
               startContent={icons.flash}
             >
-              {/* <NextLink
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Electronics",
-                  },
-                }}
-              > */}
               Electronics
-              {/* </NextLink> */}
             </DropdownItem>
             <DropdownItem
               as={NextLink}
@@ -164,16 +129,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               href="/article-category?keyword=LLMs"
               startContent={icons.server}
             >
-              {/* <NextLink
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "LLMs",
-                  },
-                }}
-              >*/}
               LLMs
-              {/* </NextLink>  */}
             </DropdownItem>
             <DropdownItem
               as={NextLink}
@@ -181,16 +137,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               key="ai"
               startContent={icons.server}
             >
-              {/* <NextLink
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Artificialintelligence",
-                  },
-                }}
-              > */}
               Artificial Intelligence
-              {/* </NextLink> */}
             </DropdownItem>
             <DropdownItem
               as={NextLink}
@@ -198,15 +145,6 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               href="/article-category?keyword=Climate"
               startContent={icons.user}
             >
-              {/* <NextLink
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Climate",
-                  },
-                }}
-              >
-            </NextLink> */}
               Climate
             </DropdownItem>
           </DropdownMenu>
@@ -299,7 +237,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
         />
       </NavbarContent>
       <NavbarMenu className="px-10 py-5">
-        <p className="font-semibold">Explore by topic</p>
+        <p className="font-semibold pt-5">Explore by topic</p>
         <NavbarMenuItem>
           <NextLink
             color="foreground"
@@ -384,11 +322,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
             Climate
           </NextLink>
         </NavbarMenuItem>
-        {/* <NavbarMenuItem>
-          <Link color="primary" href="/under-construction">
-            Subscribe
-          </Link>
-        </NavbarMenuItem> */}
+
         <NavbarMenuItem>
           {user ? (
             <>

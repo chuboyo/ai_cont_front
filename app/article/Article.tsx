@@ -9,18 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loader from "../components/Loader";
 import { useEffect, useState } from "react";
-
-type Article = {
-  id: number;
-  title: string;
-  date: string;
-  source: string;
-  paragraph_one: string;
-  paragraph_two: string;
-  read_count: number;
-  image_url: string;
-  category: string;
-};
+import { ArticleType } from "../types/ArticleType";
 
 const Article = () => {
   const params = useSearchParams();
@@ -43,7 +32,7 @@ const Article = () => {
         "https://summarebackend.com/api/articles/"
       );
       setArticles(
-        reponse.data.articles.map((article: Article) => ({
+        reponse.data.articles.map((article: ArticleType) => ({
           title: article.title,
           id: article.id,
         }))
