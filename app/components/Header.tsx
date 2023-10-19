@@ -10,6 +10,10 @@ import {
   Dropdown,
   DropdownMenu,
   Input,
+  Link,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
 } from "@nextui-org/react";
 import {
   ChevronDown,
@@ -23,17 +27,16 @@ import {
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import SearchIcon from "./SearchIcon";
-import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import { default as NextLink } from "next/link";
 type HeaderProps = {
   setSearchTerm?: (searchTerm: string) => void;
 };
-
 export default function Header({ setSearchTerm }: HeaderProps) {
   const [user, setUser] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const userInfo = Cookies.get("userInfo");
@@ -42,7 +45,6 @@ export default function Header({ setSearchTerm }: HeaderProps) {
       setUser(name?.user);
     }
   }, []);
-
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -54,21 +56,19 @@ export default function Header({ setSearchTerm }: HeaderProps) {
     server: <Server className="text-success" fill="currentColor" size={30} />,
     user: <TagUser className="text-danger" fill="currentColor" size={30} />,
   };
-
   const handleLogout = () => {
     Cookies.remove("userInfo");
     router.push("/login");
   };
-
   const handleProfile = () => {
     router.push("/profile");
   };
-
   return (
     <Navbar
       isBordered
       classNames={{
-        wrapper: "px-5 py-10 max-w-[1300px] mx-auto",
+        base: "py-3 px-5 max-w-screen lg:px-28",
+        wrapper: "max-w-full",
       }}
       shouldHideOnScroll
     >
@@ -80,7 +80,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
           </div>
         </Link>
         <Dropdown>
-          <NavbarItem>
+          <NavbarItem className="hidden xl:block">
             <DropdownTrigger>
               <Button
                 disableRipple
@@ -95,82 +95,57 @@ export default function Header({ setSearchTerm }: HeaderProps) {
           </NavbarItem>
           <DropdownMenu
             aria-label="Explore by topic"
-            className="w-[340px]"
             itemClasses={{
               base: "gap-4",
             }}
           >
-            <DropdownItem key="engineering" startContent={icons.scale}>
-              <Link
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Engineering",
-                  },
-                }}
-              >
-                Engineering
-              </Link>
+            <DropdownItem
+              as={NextLink}
+              href="/article-category?keyword=Engineering"
+              key="engineering"
+              startContent={icons.scale}
+            >
+              Engineering
             </DropdownItem>
-            <DropdownItem key="computer_vision" startContent={icons.activity}>
-              <Link
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Computervision",
-                  },
-                }}
-              >
-                Computer Vision
-              </Link>
+            <DropdownItem
+              as={NextLink}
+              href="/article-category?keyword=Computervision"
+              key="computer_vision"
+              startContent={icons.activity}
+            >
+              Computer Vision
             </DropdownItem>
-            <DropdownItem key="electronics" startContent={icons.flash}>
-              <Link
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Electronics",
-                  },
-                }}
-              >
-                Electronics
-              </Link>
+            <DropdownItem
+              as={NextLink}
+              key="electronics"
+              href="/article-category?keyword=Electronics"
+              startContent={icons.flash}
+            >
+              Electronics
             </DropdownItem>
-            <DropdownItem key="llms" startContent={icons.server}>
-              <Link
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "LLMs",
-                  },
-                }}
-              >
-                LLMs
-              </Link>
+            <DropdownItem
+              as={NextLink}
+              key="llms"
+              href="/article-category?keyword=LLMs"
+              startContent={icons.server}
+            >
+              LLMs
             </DropdownItem>
-            <DropdownItem key="ai" startContent={icons.server}>
-              <Link
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Artificialintelligence",
-                  },
-                }}
-              >
-                Artificial Intelligence
-              </Link>
+            <DropdownItem
+              as={NextLink}
+              href="/article-category?keyword=Artificialintelligence"
+              key="ai"
+              startContent={icons.server}
+            >
+              Artificial Intelligence
             </DropdownItem>
-            <DropdownItem key="climate" startContent={icons.user}>
-              <Link
-                href={{
-                  pathname: "/article-category",
-                  query: {
-                    keyword: "Climate",
-                  },
-                }}
-              >
-                Climate
-              </Link>
+            <DropdownItem
+              as={NextLink}
+              key="climate"
+              href="/article-category?keyword=Climate"
+              startContent={icons.user}
+            >
+              Climate
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -245,7 +220,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
             </Link>
           )}
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="hidden lg:block">
           <Button
             as={Link}
             color="primary"
@@ -256,7 +231,124 @@ export default function Header({ setSearchTerm }: HeaderProps) {
             Subscribe
           </Button>
         </NavbarItem>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden"
+        />
       </NavbarContent>
+      <NavbarMenu className="px-10 py-5">
+        <p className="font-semibold pt-5">Explore by topic</p>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Engineering",
+              },
+            }}
+          >
+            Engineering
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Computervision",
+              },
+            }}
+          >
+            Computer Vision
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Electronics",
+              },
+            }}
+          >
+            Electronics
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "LLMs",
+              },
+            }}
+          >
+            LLMs
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Artificialintelligence",
+              },
+            }}
+          >
+            Artificial Intelligence
+          </NextLink>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <NextLink
+            color="foreground"
+            className="text-sm"
+            href={{
+              pathname: "/article-category",
+              query: {
+                keyword: "Climate",
+              },
+            }}
+          >
+            Climate
+          </NextLink>
+        </NavbarMenuItem>
+
+        <NavbarMenuItem>
+          {user ? (
+            <>
+              <p className="font-semibold">{user}</p>
+              <Link color="foreground" href="/profile">
+                Profile
+              </Link>
+              <br />
+              <Link color="foreground" onClick={handleLogout}>
+                Logout
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link color="foreground" href="/login">
+                Login
+              </Link>
+            </>
+          )}
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link color="foreground" href="/under-construction">
+            Subscribe
+          </Link>
+        </NavbarMenuItem>
+      </NavbarMenu>
     </Navbar>
   );
 }

@@ -6,7 +6,7 @@ const UnderConstructionScreen = () => {
         style={{ fontSize: "2.0rem", color: "#667085" }}
       >
         <div style={{ minHeight: "40vh" }}></div>
-        <div className="">This feature is coming soon</div>
+        <div className="text-center">This feature is coming soon</div>
         <svg
           fill="#000000"
           height="40px"

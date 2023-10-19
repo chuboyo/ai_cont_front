@@ -1,54 +1,50 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import axios, { AxiosResponse } from "axios";
 import ArticleCard from "../components/ArticleCard";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
 import { useSearchParams } from "next/navigation";
-
-type Article = {
-  id: number;
-  title: string;
-  date: string;
-  source: string;
-  paragraph_one: string;
-  paragraph_two: string;
-  read_count: number;
-  image_url: string;
-  category: string;
-};
+import { ArticleType } from "../types/ArticleType";
 
 const ArticleCategory = () => {
   const keyword = useSearchParams().get("keyword");
-  const { data } = useQuery({
-    queryKey: ["articles"],
-    queryFn: async () => {
-      let response = await axios.get(
-        `https://summarebackend.com/api/articles/`
-      );
-      let data = response.data;
-      let articles = data.articles;
-
-      while (data.page < data.pages) {
-        response = await axios.get(
-          `https://summarebackend.com/api/articles/?page=${data.page + 1}`
+  const { data }: UseQueryResult<{ articles: ArticleType[] }, unknown> =
+    useQuery({
+      queryKey: ["articles"],
+      queryFn: async () => {
+        let response: AxiosResponse<any> = await axios.get(
+          `https://summarebackend.com/api/articles/`
         );
-        data = response.data;
-        articles = [...articles, ...data.articles];
-      }
+        let data = response.data;
+        let articles: ArticleType[] = data.articles;
 
-      console.log(articles);
-      return { articles };
-    },
-  });
+        while (data.page < data.pages) {
+          response = await axios.get(
+            `https://summarebackend.com/api/articles/?page=${data.page + 1}`
+          );
+          data = response.data;
+          articles = [...articles, ...data.articles];
+        }
+
+        const uniqueArticles: ArticleType[] = Array.from(
+          new Set(articles.map((a) => a.id))
+        ).map((id) => {
+          return articles.find((a) => a.id === id)!;
+        });
+
+        console.log(uniqueArticles);
+        return { articles: uniqueArticles };
+      },
+    });
 
   if (!data) {
     return <Loader />;
   }
 
   const articles = data.articles.filter(
-    (article: Article) => article.category === keyword
+    (article: ArticleType) => article.category === keyword
   );
 
   if (articles.length === 0) {
@@ -56,17 +52,18 @@ const ArticleCategory = () => {
       <>
         <Header />
         <div className="flex flex-wrap gap-10 px-28 py-10">
-          <p className="text-3xl text-center">No articles found</p>
+          <h1 className="text-3xl text-center">No articles found</h1>
         </div>
         <Footer />
       </>
     );
   }
+
   return (
     <>
       <Header />
-      <div className="flex flex-wrap gap-10 px-28 py-10">
-        {articles.map((article: Article) => (
+      <div className="flex flex-wrap gap-10 px-10 lg:px-28 py-5 lg:py-10">
+        {articles.map((article: ArticleType) => (
           <ArticleCard
             key={article.id}
             id={article.id}

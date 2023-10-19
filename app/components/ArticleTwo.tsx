@@ -21,22 +21,22 @@ const ArticleTwo = (props: ArticleProps) => {
         },
       }}
     >
-      <div className="flex py-3 gap-5 w-4/5">
-        <div className="w-2/3 h-48">
+      <div className="py-3 flex flex-col gap-y-3 lg:flex lg:gap-y-0 lg:flex-row lg:gap-x-5">
+        <div className="lg:w-2/5">
           <Image
             src={props.image_url ? props.image_url : "/"}
             alt="Article Image"
-            className="h-full"
+            className="h-unit-5xl w-full object-cover"
             width={1000}
             height={1000}
           />
         </div>
-        <div className="w-2/3">
+        <div className="lg:w-1/2 flex flex-col gap-y-3">
           <h1 className="text-xl font-semibold">{props.title}</h1>
           <p className="text-gray-600 text-sm">{props.date}</p>
           <p className="truncate2-custom">{props.description}</p>
           <Chip color="primary" variant="flat">
-            {props.badge}
+            {props.badge ? props.badge : "Artificialintelligence"}
           </Chip>
         </div>
       </div>

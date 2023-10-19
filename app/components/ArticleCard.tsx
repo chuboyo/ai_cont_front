@@ -24,7 +24,7 @@ export default function ArticleCard(props: ArticleProps) {
         radius="none"
         isPressable
         classNames={{
-          base: "rounded-none max-w-[400px] p-0 shadow-none",
+          base: "rounded-none w-full lg:w-[400px] p-0 shadow-none",
           header: "rounded-none p-0",
           body: "px-3",
         }}
@@ -49,7 +49,7 @@ export default function ArticleCard(props: ArticleProps) {
             {props.description ? props.description : "Loading..."}
           </p>
           <Chip color="primary" variant="flat">
-            {props.badge ? props.badge : "Loading..."}
+            {props.badge ? props.badge : "Artificialintelligence"}
           </Chip>
         </CardBody>
       </Card>

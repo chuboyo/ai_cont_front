@@ -26,7 +26,7 @@ const ArticleOne = (props: ArticleProps) => {
         <Image
           src={props.image_url ? props.image_url : "/"}
           alt="Article Image"
-          className="w-full h-64"
+          className="h-unit-6xl w-full object-cover"
           width={1000}
           height={1000}
         />
@@ -34,7 +34,7 @@ const ArticleOne = (props: ArticleProps) => {
         <p className="text-gray-600 text-sm">{props.date}</p>
         <p className="truncate2-custom">{props.description}</p>
         <Chip color="primary" variant="flat">
-          {props.badge}
+          {props.badge ? props.badge : "Artificialintelligence"}
         </Chip>
       </div>
     </Link>
