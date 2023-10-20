@@ -44,6 +44,10 @@ export default function RootLayout({
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       ></script>
+      <meta
+        name="description"
+        content="Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!"
+      />
       <body className={inter.className}>
         <Toaster />
         <QueryProvider>

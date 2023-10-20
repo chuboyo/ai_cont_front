@@ -64,26 +64,16 @@ export default function Header({ setSearchTerm }: HeaderProps) {
     router.push("/profile");
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    // axios.get(`https://summarebackend.com/api/articles/?keyword=${searchTerm}&page=1`)
-    // .then(response => {
-    //   console.log(response.data);
-    // })
-    // .catch(error => {
-    //   console.error('Error:', error);
-    // });
-  };
   return (
     <Navbar
       isBordered
       classNames={{
-        base: "py-3 px-5 max-w-screen lg:px-28",
+        base: "py-3 px-5 max-w-screen lg:px-24",
         wrapper: "max-w-full",
       }}
       shouldHideOnScroll
     >
-      <NavbarBrand className="gap-5">
+      <NavbarBrand className="gap-5 lg:gap-x-8">
         <Link href="/">
           <div className="flex gap-1">
             <Image src={logo} alt="Logo" />
@@ -91,7 +81,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
           </div>
         </Link>
         <Dropdown>
-          <NavbarItem className="hidden xl:block">
+          <NavbarItem className="hidden lg:block">
             <DropdownTrigger>
               <Button
                 disableRipple
@@ -163,24 +153,22 @@ export default function Header({ setSearchTerm }: HeaderProps) {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <form onSubmit={handleSubmit}>
-            <Input
-              classNames={{
-                base: "sm:max-w-[100rem]",
-                mainWrapper: "h-full",
-                input: "text-small",
-                inputWrapper:
-                  "h-full font-normal text-default-500 dark:bg-default-500/20",
-              }}
-              onChange={(e) => setSearchTerm && setSearchTerm(e.target.value)}
-              radius="none"
-              variant="bordered"
-              placeholder="Type to search..."
-              size="md"
-              startContent={<SearchIcon size={18} />}
-              type="search"
-            />
-          </form>
+          <Input
+            classNames={{
+              base: "sm:max-w-[100rem]",
+              mainWrapper: "h-full",
+              input: "text-small",
+              inputWrapper:
+                "h-full font-normal text-default-500 dark:bg-default-500/20",
+            }}
+            onChange={(e) => setSearchTerm && setSearchTerm(e.target.value)}
+            radius="none"
+            variant="bordered"
+            placeholder="Type to search..."
+            size="md"
+            startContent={<SearchIcon size={18} />}
+            type="search"
+          />
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
@@ -250,6 +238,24 @@ export default function Header({ setSearchTerm }: HeaderProps) {
         />
       </NavbarContent>
       <NavbarMenu className="px-10 py-5">
+        <NavbarMenuItem className="pt-5 md:hidden">
+          <Input
+            classNames={{
+              base: "sm:max-w-[100rem]",
+              mainWrapper: "h-full",
+              input: "text-small",
+              inputWrapper:
+                "h-full font-normal text-default-500 dark:bg-default-500/20",
+            }}
+            onChange={(e) => setSearchTerm && setSearchTerm(e.target.value)}
+            radius="none"
+            variant="bordered"
+            placeholder="Type to search..."
+            size="md"
+            startContent={<SearchIcon size={18} />}
+            type="search"
+          />
+        </NavbarMenuItem>
         <p className="font-semibold pt-5">Explore by topic</p>
         <NavbarMenuItem>
           <NextLink

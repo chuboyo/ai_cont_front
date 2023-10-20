@@ -10,6 +10,7 @@ import axios from "axios";
 import Loader from "../components/Loader";
 import { useEffect, useState } from "react";
 import { ArticleType } from "../types/ArticleType";
+import { SocialIcon } from "react-social-icons";
 
 const Article = () => {
   const params = useSearchParams();
@@ -66,15 +67,86 @@ const Article = () => {
           height={1000}
         />
       </div>
-      <div className="flex justify-between px-20 lg:px-28">
+      <div className="flex justify-between px-16 lg:px-24">
         <div>
           <h1 className="font-semibold text-lg">
             {data ? data.source : "Loading..."}
           </h1>
           <p>{data ? data.title : "Loading..."}</p>
         </div>
+        <div className="flex gap-x-3">
+          <SocialIcon
+            network="twitter"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            className="cursor-pointer"
+            bgColor="grey"
+            onClick={() => {
+              window.open(
+                `https:twitter.com/share`,
+                "popup",
+                "width=600,height=600"
+              );
+              return false;
+            }}
+          />
+          <SocialIcon
+            network="facebook"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            className="cursor-pointer"
+            bgColor="grey"
+            onClick={() => {
+              window.open(
+                `https://facebook.com/sharer`,
+                "popup",
+                "width=600,height=600"
+              );
+              return false;
+            }}
+          />
+          <SocialIcon
+            network="linkedin"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            className="cursor-pointer"
+            bgColor="grey"
+            onClick={() => {
+              window.open(
+                `https://linkedin.com/share`,
+                "popup",
+                "width=600,height=600"
+              );
+              return false;
+            }}
+          />
+          <SocialIcon
+            network="email"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            className="cursor-pointer"
+            bgColor="grey"
+            href="mailto:"
+            // onClick={() => {
+            //   window.open(
+            //     `mailto:`,
+            //     "popup",
+            //     "width=600,height=600"
+            //   );
+            //   return false;
+            // }}
+          />
+        </div>
       </div>
-      <div className="pt-10 flex flex-wrap max-w-screen gap-10 px-20 lg:flex-nowrap lg:px-28 lg:gap-14">
+      <div className="pt-10 flex flex-wrap max-w-screen gap-10 px-16 lg:flex-nowrap lg:px-24 lg:gap-14">
         <div className="flex flex-col gap-10 w-5/6">
           <p>{data ? data.paragraph_one : "Loading..."}</p>
           <p>{data ? data.paragraph_two : "Loading..."}</p>
