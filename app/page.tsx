@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Paginate from "./components/Paginate";
 import Loader from "./components/Loader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArticleTwo from "./components/ArticleTwo";
 import AdComponent from "./components/AdComponent";
 import { ArticleType } from "./types/ArticleType";
@@ -15,6 +15,7 @@ import { ArticleType } from "./types/ArticleType";
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredArticles, setFilteredArticles] = useState([]);
   const itemsPerPage = 3;
   const { data } = useQuery({
     queryKey: ["articles", currentPage],
@@ -27,25 +28,27 @@ export default function Home() {
     },
   });
 
+  useEffect(() => {
+    if (searchTerm) {
+      axios
+        .get(
+          `https://summarebackend.com/api/articles/?keyword=${searchTerm}&page=1`
+        )
+        .then((response) => {
+          setFilteredArticles(response.data.articles);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  }, [searchTerm]);
+
   if (!data) {
     return <Loader />;
   }
 
   const articles: ArticleType[] = data.articles;
   const totalPages = Math.ceil(articles.length / itemsPerPage);
-
-  let filteredArticles = articles;
-  if (searchTerm !== "") {
-    const searchWords = searchTerm.toLowerCase().split(" ");
-    filteredArticles = articles.filter((article) =>
-      searchWords.some(
-        (word) =>
-          article.title.toLowerCase().includes(word) ||
-          article.category.toLowerCase().includes(word) ||
-          article.paragraph_one.toLowerCase().includes(word)
-      )
-    );
-  }
 
   const pages = [];
   for (let i = 0; i < articles.length; i += itemsPerPage) {
@@ -55,6 +58,21 @@ export default function Home() {
   return (
     <div>
       <Header setSearchTerm={setSearchTerm} />
+      {searchTerm ? (
+        <div className="flex flex-wrap gap-10 p-10 lg:px-28">
+          {filteredArticles.map((article: ArticleType) => (
+            <ArticleCard
+              key={article.id}
+              id={article.id}
+              image_url={article.image_url}
+              title={article.title}
+              date={new Date(article.date).toLocaleDateString()}
+              description={article.paragraph_one}
+              badge={article.category}
+            />
+          ))}
+        </div>
+      ) : null}
       {searchTerm === "" && (
         <div className="max-w-full p-10 lg:px-28">
           <h1 className="text-3xl">Trending AI Articles</h1>
@@ -100,25 +118,31 @@ export default function Home() {
           </div>
         )}
         <div className="flex flex-wrap gap-10 p-10 lg:px-28">
-          {filteredArticles.slice(6, 12).map((article: ArticleType) => (
-            <ArticleCard
-              key={article.id}
-              id={article.id}
-              image_url={article.image_url}
-              title={article.title}
-              date={new Date(article.date).toLocaleDateString()}
-              description={article.paragraph_one}
-              badge={article.category}
-            />
-          ))}
+          {searchTerm === "" && (
+            <>
+              {articles.slice(6, 12).map((article: ArticleType) => (
+                <ArticleCard
+                  key={article.id}
+                  id={article.id}
+                  image_url={article.image_url}
+                  title={article.title}
+                  date={new Date(article.date).toLocaleDateString()}
+                  description={article.paragraph_one}
+                  badge={article.category}
+                />
+              ))}
+            </>
+          )}
         </div>
       </div>
       <div className="flex items-center justify-center pt-10">
-        <Paginate
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
+        {searchTerm === "" && (
+          <Paginate
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        )}
       </div>
       <AdComponent />
       <Footer />
