@@ -223,7 +223,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
         <NavbarItem className="hidden lg:block">
           <Button
             as={Link}
-            color="primary"
+            className="bg-[#0070F0] text-white"
             href="/under-construction"
             radius="sm"
             variant="solid"
