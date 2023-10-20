@@ -63,6 +63,17 @@ export default function Header({ setSearchTerm }: HeaderProps) {
   const handleProfile = () => {
     router.push("/profile");
   };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    // axios.get(`https://summarebackend.com/api/articles/?keyword=${searchTerm}&page=1`)
+    // .then(response => {
+    //   console.log(response.data);
+    // })
+    // .catch(error => {
+    //   console.error('Error:', error);
+    // });
+  };
   return (
     <Navbar
       isBordered
@@ -152,22 +163,24 @@ export default function Header({ setSearchTerm }: HeaderProps) {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Input
-            classNames={{
-              base: "sm:max-w-[100rem]",
-              mainWrapper: "h-full",
-              input: "text-small",
-              inputWrapper:
-                "h-full font-normal text-default-500 dark:bg-default-500/20",
-            }}
-            onChange={(e) => setSearchTerm && setSearchTerm(e.target.value)}
-            radius="none"
-            variant="bordered"
-            placeholder="Type to search..."
-            size="md"
-            startContent={<SearchIcon size={18} />}
-            type="search"
-          />
+          <form onSubmit={handleSubmit}>
+            <Input
+              classNames={{
+                base: "sm:max-w-[100rem]",
+                mainWrapper: "h-full",
+                input: "text-small",
+                inputWrapper:
+                  "h-full font-normal text-default-500 dark:bg-default-500/20",
+              }}
+              onChange={(e) => setSearchTerm && setSearchTerm(e.target.value)}
+              radius="none"
+              variant="bordered"
+              placeholder="Type to search..."
+              size="md"
+              startContent={<SearchIcon size={18} />}
+              type="search"
+            />
+          </form>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
@@ -223,7 +236,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
         <NavbarItem className="hidden lg:block">
           <Button
             as={Link}
-            color="primary"
+            className="bg-[#0070F0] text-white"
             href="/under-construction"
             radius="sm"
             variant="solid"
