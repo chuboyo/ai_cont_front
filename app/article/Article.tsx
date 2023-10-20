@@ -57,7 +57,11 @@ const Article = () => {
           {data ? data.paragraph_one : "Loading..."}
         </p>
         <Chip color="primary" variant="flat">
-          {data ? data.category : "Artificialintelligence"}
+          {data
+            ? data.category == ""
+              ? "Artificialintelligence"
+              : data.category
+            : "Loading..."}
         </Chip>
         <Image
           src={data ? data.image_url : "/"}
@@ -67,7 +71,7 @@ const Article = () => {
           height={1000}
         />
       </div>
-      <div className="flex justify-between px-16 lg:px-24">
+      <div className="flex flex-wrap gap-y-5 justify-between px-16 lg:px-24">
         <div>
           <h1 className="font-semibold text-lg">
             {data ? data.source : "Loading..."}

@@ -81,7 +81,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
           </div>
         </Link>
         <Dropdown>
-          <NavbarItem className="hidden lg:block">
+          <NavbarContent className="hidden lg:block">
             <DropdownTrigger>
               <Button
                 disableRipple
@@ -93,15 +93,15 @@ export default function Header({ setSearchTerm }: HeaderProps) {
                 Explore by topic
               </Button>
             </DropdownTrigger>
-          </NavbarItem>
+          </NavbarContent>
           <DropdownMenu
-            aria-label="Explore by topic"
             itemClasses={{
               base: "gap-4",
             }}
           >
             <DropdownItem
-              as={NextLink}
+              as={Link}
+              className="text-[#2c2c30]"
               href="/article-category?keyword=Engineering"
               key="engineering"
               startContent={icons.scale}
@@ -109,7 +109,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               Engineering
             </DropdownItem>
             <DropdownItem
-              as={NextLink}
+              as={Link}
+              className="text-[#2c2c30]"
               href="/article-category?keyword=Computervision"
               key="computer_vision"
               startContent={icons.activity}
@@ -117,7 +118,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               Computer Vision
             </DropdownItem>
             <DropdownItem
-              as={NextLink}
+              as={Link}
+              className="text-[#2c2c30]"
               key="electronics"
               href="/article-category?keyword=Electronics"
               startContent={icons.flash}
@@ -125,7 +127,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               Electronics
             </DropdownItem>
             <DropdownItem
-              as={NextLink}
+              as={Link}
+              className="text-[#2c2c30]"
               key="llms"
               href="/article-category?keyword=LLMs"
               startContent={icons.server}
@@ -133,7 +136,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               LLMs
             </DropdownItem>
             <DropdownItem
-              as={NextLink}
+              as={Link}
+              className="text-[#2c2c30]"
               href="/article-category?keyword=Artificialintelligence"
               key="ai"
               startContent={icons.server}
@@ -141,7 +145,8 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               Artificial Intelligence
             </DropdownItem>
             <DropdownItem
-              as={NextLink}
+              as={Link}
+              className="text-[#2c2c30]"
               key="climate"
               href="/article-category?keyword=Climate"
               startContent={icons.user}

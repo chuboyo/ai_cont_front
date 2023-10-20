@@ -1,6 +1,6 @@
 "use client";
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import axios, { AxiosResponse } from "axios";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import ArticleCard from "../components/ArticleCard";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -10,34 +10,32 @@ import { ArticleType } from "../types/ArticleType";
 
 const ArticleCategory = () => {
   const keyword = useSearchParams().get("keyword");
-  const { data }: UseQueryResult<{ articles: ArticleType[] }, unknown> =
-    useQuery({
-      queryKey: ["articles"],
-      queryFn: async () => {
-        let response: AxiosResponse<any> = await axios.get(
-          `https://summarebackend.com/api/articles/`
+  const { data } = useQuery({
+    queryKey: ["articles"],
+    queryFn: async () => {
+      let response = await axios.get(
+        `https://summarebackend.com/api/articles/`
+      );
+      let data = response.data;
+      let articles: ArticleType[] = data.articles;
+
+      while (data.page < data.pages) {
+        response = await axios.get(
+          `https://summarebackend.com/api/articles/?page=${data.page + 1}`
         );
-        let data = response.data;
-        let articles: ArticleType[] = data.articles;
+        data = response.data;
+        articles = [...articles, ...data.articles];
+      }
 
-        while (data.page < data.pages) {
-          response = await axios.get(
-            `https://summarebackend.com/api/articles/?page=${data.page + 1}`
-          );
-          data = response.data;
-          articles = [...articles, ...data.articles];
-        }
-
-        const uniqueArticles: ArticleType[] = Array.from(
-          new Set(articles.map((a) => a.id))
-        ).map((id) => {
-          return articles.find((a) => a.id === id)!;
-        });
-
-        console.log(uniqueArticles);
-        return { articles: uniqueArticles };
-      },
-    });
+      const uniqueArticles: ArticleType[] = Array.from(
+        new Set(articles.map((a) => a.id))
+      ).map((id) => {
+        return articles.find((a) => a.id === id)!;
+      });
+      console.log(uniqueArticles);
+      return { articles: uniqueArticles };
+    },
+  });
 
   if (!data) {
     return <Loader />;
