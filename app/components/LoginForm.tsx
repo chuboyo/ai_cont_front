@@ -6,6 +6,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -22,8 +23,7 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
-    axios
+    await axios
       .post(
         "https://summarebackend.com/api/login/",
         {
@@ -43,6 +43,7 @@ const LoginForm = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Invalid credentials");
       });
   };
   return (

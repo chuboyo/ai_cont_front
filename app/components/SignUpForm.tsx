@@ -4,6 +4,7 @@ import { Button, Input, Link } from "@nextui-org/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FieldValues, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import z from "zod";
 
 const signupSchema = z.object({
@@ -44,6 +45,7 @@ const SignUpForm = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("User already exists.");
       });
   };
   return (
