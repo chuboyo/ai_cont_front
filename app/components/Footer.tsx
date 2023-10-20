@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
+import { SocialIcon } from "react-social-icons";
 const Footer = () => {
   const footerNavs = [
     {
@@ -162,8 +163,78 @@ const Footer = () => {
         <div className="mt-4 sm:mt-0">
           &copy; 2023 Summare. All rights reserved.
         </div>
-        <div className="mt-6 sm:mt-0">
-          <ul className="flex items-center space-x-4">
+        <div className="flex gap-x-3 mt-6 sm:mt-0">
+          <SocialIcon
+            network="twitter"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            className="cursor-pointer"
+            bgColor="#a0a0af"
+            onClick={() => {
+              const width = 600;
+              const height = 600;
+              const left = window.innerWidth / 2 - width / 2;
+              const top = window.innerHeight / 2 - height / 2;
+
+              window.open(
+                `https://twitter.com/share`,
+                "popup",
+                `width=${width},height=${height},top=${top},left=${left}`
+              );
+
+              return false;
+            }}
+          />
+          <SocialIcon
+            network="facebook"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            className="cursor-pointer"
+            bgColor="#a0a0af"
+            onClick={() => {
+              const width = 600;
+              const height = 600;
+              const left = window.innerWidth / 2 - width / 2;
+              const top = window.innerHeight / 2 - height / 2;
+
+              window.open(
+                `https://facebook.com/sharer`,
+                "popup",
+                `width=${width},height=${height},top=${top},left=${left}`
+              );
+
+              return false;
+            }}
+          />
+          <SocialIcon
+            network="linkedin"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            className="cursor-pointer"
+            bgColor="#a0a0af"
+            onClick={() => {
+              const width = 600;
+              const height = 600;
+              const left = window.innerWidth / 2 - width / 2;
+              const top = window.innerHeight / 2 - height / 2;
+
+              window.open(
+                `https://linkedin.com/share`,
+                "popup",
+                `width=${width},height=${height},top=${top},left=${left}`
+              );
+
+              return false;
+            }}
+          />
+
+          {/* <ul className="flex items-center space-x-4">
             <li className="w-10 border rounded-full flex items-center justify-center">
               <a href="https://twitter.com/share" target="_blank">
                 <svg
@@ -192,7 +263,7 @@ const Footer = () => {
               </a>
             </li>
 
-            {/* <li className="w-10 h-10 border rounded-full flex items-center justify-center">
+            <li className="w-10 h-10 border rounded-full flex items-center justify-center">
               <a href="#">
                 <svg
                   className="svg-icon w-6 h-6 text-gray-400"
@@ -204,8 +275,8 @@ const Footer = () => {
                   ></path>
                 </svg>
               </a>
-            </li> */}
-          </ul>
+            </li>
+          </ul> */}
           <style jsx>{`
             .svg-icon path,
             .svg-icon polygon,

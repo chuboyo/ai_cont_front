@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   keywords:
     "AI, Artificial Intelligence, Machine Learning, Deep Learning, Neural Networks, Blogs, AI Articles",
   robots: "index,follow",
+  icons: {
+    icon: "%PUBLIC_URL%/favicon.ico",
+  },
   openGraph: {
     title: "Summare.ai - AI article summaries",
     description:
@@ -48,6 +51,7 @@ export default function RootLayout({
         name="description"
         content="Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!"
       />
+      <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
       <body className={inter.className}>
         <Toaster />
         <QueryProvider>

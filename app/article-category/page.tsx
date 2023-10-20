@@ -13,18 +13,23 @@ const ArticleCategory = () => {
   const { data } = useQuery({
     queryKey: ["articles"],
     queryFn: async () => {
-      let response = await axios.get(
-        `https://summarebackend.com/api/articles/`
-      );
-      let data = response.data;
-      let articles: ArticleType[] = data.articles;
+      let page = 1;
+      let articles: ArticleType[] = [];
+      let found = false;
 
-      while (data.page < data.pages) {
-        response = await axios.get(
-          `https://summarebackend.com/api/articles/?page=${data.page + 1}`
+      while (!found) {
+        const response = await axios.get(
+          `https://summarebackend.com/api/articles/?page=${page}`
         );
-        data = response.data;
+        const data = response.data;
         articles = [...articles, ...data.articles];
+
+        // If an article from the 'engineering' category is found, stop fetching
+        if (articles.some((article) => article.category === keyword)) {
+          found = true;
+        }
+
+        page++;
       }
 
       const uniqueArticles: ArticleType[] = Array.from(
@@ -32,6 +37,7 @@ const ArticleCategory = () => {
       ).map((id) => {
         return articles.find((a) => a.id === id)!;
       });
+
       console.log(uniqueArticles);
       return { articles: uniqueArticles };
     },
