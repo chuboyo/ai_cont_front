@@ -24,7 +24,6 @@ const ArticleCategory = () => {
         const data = response.data;
         articles = [...articles, ...data.articles];
 
-        // If an article from the 'engineering' category is found, stop fetching
         if (articles.some((article) => article.category === keyword)) {
           found = true;
         }
