@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import SignUpForm from "../components/SignUpForm";
+import Link from "next/link";
 const page = () => {
   return (
     <div className="flex max-w-full overflow-hidden h-screen">
@@ -19,10 +20,12 @@ const page = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="flex p-6">
-          <Image src={logo} alt="Logo" />
-          <p className="font-semibold text-2xl text-blue-600">Summare</p>
-        </div>
+        <Link href="/">
+          <div className="flex p-6">
+            <Image src={logo} alt="Logo" />
+            <p className="font-semibold text-2xl text-blue-600">Summare</p>
+          </div>
+        </Link>
         <div className="flex justify-center align-middle content-center items-center h-4/5">
           <div className="flex flex-col gap-y-4 max-w-sm">
             <h1 className="text-4xl font-bold">Signup</h1>

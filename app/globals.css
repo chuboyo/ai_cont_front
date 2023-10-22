@@ -203,7 +203,7 @@
   width: 100%;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .leftHand {
     min-width: 0rem;
     max-width: 0rem;
@@ -211,7 +211,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .font-link {
     font-size: 0;
   }

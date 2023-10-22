@@ -59,7 +59,7 @@ export default function Home() {
     <div>
       <Header setSearchTerm={setSearchTerm} />
       {searchTerm ? (
-        <div className="flex flex-wrap gap-10 p-10 lg:px-28">
+        <div className="flex flex-wrap gap-10 p-10 lg:px-20">
           {filteredArticles.map((article: ArticleType) => (
             <ArticleCard
               key={article.id}

@@ -1,15 +1,8 @@
 import { Card, CardHeader, CardBody, Chip } from "@nextui-org/react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
+import { ArticleProps } from "../types/ArticleProps";
 
-type ArticleProps = {
-  id?: number;
-  image_url?: string | StaticImageData;
-  title?: string;
-  date?: string;
-  description?: string;
-  badge?: string;
-};
 export default function ArticleCard(props: ArticleProps) {
   return (
     <Link
@@ -24,7 +17,7 @@ export default function ArticleCard(props: ArticleProps) {
         radius="none"
         isPressable
         classNames={{
-          base: "rounded-none w-full lg:w-[360px] p-0 shadow-none",
+          base: "rounded-none w-full lg:w-[370px] p-0 shadow-none",
           header: "rounded-none p-0",
           body: "px-3",
         }}
