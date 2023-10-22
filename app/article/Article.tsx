@@ -46,7 +46,7 @@ const Article = () => {
   return (
     <div>
       <Header />
-      <div className="flex flex-col items-center p-10 gap-5">
+      <div className="flex flex-col items-center p-4 gap-5">
         <h2 className="text-blue-800 text-xl font-semibold">
           {data ? `Published ${data.date}` : "Loading..."}
         </h2>
@@ -71,7 +71,7 @@ const Article = () => {
           height={1000}
         />
       </div>
-      <div className="flex flex-wrap gap-y-5 justify-between px-16 lg:px-24">
+      <div className="flex flex-wrap gap-y-5 justify-between px-10 md:px-14 lg:px-16 xl:px-20">
         <div>
           <h1 className="font-semibold text-lg">
             {data ? data.source : "Loading..."}
@@ -168,8 +168,8 @@ const Article = () => {
           />
         </div>
       </div>
-      <div className="pt-10 flex flex-wrap max-w-screen gap-10 px-16 lg:flex-nowrap lg:px-24 lg:gap-14">
-        <div className="flex flex-col gap-10 w-5/6">
+      <div className="pt-10 flex flex-wrap max-w-screen gap-10 px-10 md:px-14 lg:flex-nowrap lg:px-16 lg:gap-14 xl:px-20">
+        <div className="flex flex-col gap-10 lg:w-5/6">
           <p>{data ? data.paragraph_one : "Loading..."}</p>
           <p>{data ? data.paragraph_two : "Loading..."}</p>
         </div>
