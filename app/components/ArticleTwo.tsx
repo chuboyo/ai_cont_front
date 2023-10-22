@@ -1,16 +1,9 @@
 "use client";
 import { Chip } from "@nextui-org/react";
-import { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
-type ArticleProps = {
-  id?: number;
-  image_url?: string | StaticImageData;
-  title?: string;
-  date?: string;
-  description?: string;
-  badge?: string;
-};
+import { ArticleProps } from "../types/ArticleProps";
+
 const ArticleTwo = (props: ArticleProps) => {
   return (
     <Link

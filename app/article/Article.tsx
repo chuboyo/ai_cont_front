@@ -47,7 +47,7 @@ const Article = () => {
     <div>
       <Header />
       <div className="flex flex-col items-center p-4 gap-5">
-        <h2 className="text-blue-800 text-xl font-semibold">
+        <h2 className="text-blue-800 text-xl pt-10 font-semibold">
           {data ? `Published ${data.date}` : "Loading..."}
         </h2>
         <h1 className="lg:text-4xl md:text-4xl text-2xl font-semibold text-center">
