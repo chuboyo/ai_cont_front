@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Summare.ai - AI article summaries",
-  metadataBase: new URL("https://summare-ai.vercel.app"),
+  metadataBase: new URL("https://www.summare.ai"),
   description:
     "Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!",
   keywords:
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!",
     type: "website",
     locale: "en_US",
-    url: "https://summare-ai.vercel.app",
+    url: "https://www.summare.ai",
     siteName: "Summare.ai - AI article summaries",
   },
   twitter: {
@@ -47,10 +47,6 @@ export default function RootLayout({
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       ></script>
-      <meta
-        name="description"
-        content="Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!"
-      />
       <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
       <body className={inter.className}>
         <Toaster />

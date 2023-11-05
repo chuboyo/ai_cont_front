@@ -80,6 +80,7 @@ const Article = () => {
         </div>
         <div className="flex gap-x-3">
           <SocialIcon
+            href="https://twitter.com/share"
             network="twitter"
             style={{
               width: "30px",
@@ -87,7 +88,8 @@ const Article = () => {
             }}
             className="cursor-pointer"
             bgColor="#a0a0af"
-            onClick={() => {
+            onClick={(event) => {
+              event.preventDefault();
               const width = 600;
               const height = 600;
               const left = window.innerWidth / 2 - width / 2;
@@ -103,6 +105,7 @@ const Article = () => {
             }}
           />
           <SocialIcon
+            href="https://facebook.com/sharer"
             network="facebook"
             style={{
               width: "30px",
@@ -126,6 +129,7 @@ const Article = () => {
             }}
           />
           <SocialIcon
+            href="https://linkedin.com/share"
             network="linkedin"
             style={{
               width: "30px",
@@ -133,7 +137,8 @@ const Article = () => {
             }}
             className="cursor-pointer"
             bgColor="#a0a0af"
-            onClick={() => {
+            onClick={(event) => {
+              event.preventDefault();
               const width = 600;
               const height = 600;
               const left = window.innerWidth / 2 - width / 2;
@@ -157,14 +162,6 @@ const Article = () => {
             className="cursor-pointer"
             bgColor="#a0a0af"
             href="mailto:"
-            // onClick={() => {
-            //   window.open(
-            //     `mailto:`,
-            //     "popup",
-            //     "width=600,height=600"
-            //   );
-            //   return false;
-            // }}
           />
         </div>
       </div>

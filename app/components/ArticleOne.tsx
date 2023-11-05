@@ -21,6 +21,8 @@ const ArticleOne = (props: ArticleProps) => {
           className="h-unit-6xl w-full object-cover"
           width={1000}
           height={1000}
+          loading="eager"
+          priority
         />
         <h1 className="text-xl font-semibold">{props.title}</h1>
         <p className="text-gray-600 text-sm">{props.date}</p>

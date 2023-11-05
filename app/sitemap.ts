@@ -5,13 +5,13 @@ export default async function sitemap() {
 
   return [
     {
-      url: "https://summare-ai.vercel.app",
+      url: "https://www.summare.ai",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     ...data.articles.map((a: any) => ({
-      url: "https://summare-ai.vercel.app/article?id=" + a.id,
+      url: "https://www.summare.ai/article?id=" + a.id,
       lastModified: a.date,
       changeFrequency: "yearly",
       priority: 1,
