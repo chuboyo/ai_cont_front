@@ -70,7 +70,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
       <NavbarBrand className="gap-5 lg:gap-x-8">
         <Link href="/">
           <div className="flex gap-1">
-            <Image src={logo} alt="Logo" />
+            <Image src={logo} alt="Logo" className="w-8 h-8" />
             <p className="font-semibold text-2xl text-blue-600">Summare</p>
           </div>
         </Link>

@@ -8,7 +8,7 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Summare.ai - AI article summaries",
+  title: "Summare AI - AI article summaries",
   metadataBase: new URL("https://www.summare.ai"),
   description:
     "Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!",
@@ -19,20 +19,20 @@ export const metadata: Metadata = {
     icon: "%PUBLIC_URL%/favicon.ico",
   },
   openGraph: {
-    title: "Summare.ai - AI article summaries",
+    title: "Summare AI - AI article summaries",
     description:
       "Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!",
     type: "website",
     locale: "en_US",
     url: "https://www.summare.ai",
-    siteName: "Summare.ai - AI article summaries",
+    siteName: "Summare AI - AI article summaries",
   },
   twitter: {
     card: "summary_large_image",
     description:
       "Get concise summaries of the latest AI research articles and papers with summare.ai. Stay updated quickly!",
-    title: "Summare.ai - AI article summaries",
-    site: "Summare.ai - AI article summaries",
+    title: "Summare AI - AI article summaries",
+    site: "Summare AI - AI article summaries",
   },
 };
 

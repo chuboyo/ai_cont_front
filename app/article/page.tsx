@@ -31,7 +31,7 @@ export async function generateMetadata(
       images: [...previousImages, data.image_url],
       locale: "en_US",
       url: "https://www.summare.ai/article?id=" + id,
-      siteName: "Summare.ai - AI article summaries",
+      siteName: "Summare AI - AI article summaries",
       publishedTime: data.date,
     },
     authors: [data.source],
@@ -44,7 +44,7 @@ export async function generateMetadata(
       creator: data.source,
       description: data.description,
       title: data.title,
-      site: "Summare.ai - AI article summaries",
+      site: "Summare AI - AI article summaries",
       images: [...previousImages, data.image_url],
     },
   };
