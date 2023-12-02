@@ -37,7 +37,7 @@ const ForgotPasswordForm = () => {
     >
       {status === "OK" ? (
         <p className="text-blue-600 text-center">
-          A login token has been sent to your email
+          A token has been sent to your email
         </p>
       ) : (
         <></>
