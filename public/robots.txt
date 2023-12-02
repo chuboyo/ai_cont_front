@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /_next/
-Disallow: /api/
 
-Sitemap: http://localhot:8080/sitemap.xml
+Sitemap: https://www.summmare.ai/sitemap.xml

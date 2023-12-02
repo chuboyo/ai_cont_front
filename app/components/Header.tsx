@@ -15,15 +15,8 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import {
-  ChevronDown,
-  Lock,
-  Activity,
-  Flash,
-  Server,
-  TagUser,
-  Scale,
-} from "./Icons";
+import { ChevronDown, Activity, Flash, Server } from "./Icons";
+import { SettingShort, Eye, Cpu, Cloud } from "react-huge-icons/outline";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import SearchIcon from "./SearchIcon";
@@ -47,14 +40,15 @@ export default function Header({ setSearchTerm }: HeaderProps) {
   }, []);
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
-    scale: <Scale className="text-warning" fill="currentColor" size={30} />,
-    lock: <Lock className="text-success" fill="currentColor" size={30} />,
+    scale: <SettingShort className="text-primary w-7 h-7" />,
+    lock: <Eye className="text-primary w-7 h-7" />,
     activity: (
       <Activity className="text-secondary" fill="currentColor" size={30} />
     ),
     flash: <Flash className="text-primary" fill="currentColor" size={30} />,
-    server: <Server className="text-success" fill="currentColor" size={30} />,
-    user: <TagUser className="text-danger" fill="currentColor" size={30} />,
+    server: <Server className="text-primary" fill="currentColor" size={30} />,
+    cpu: <Cpu className="text-primary w-7 h-7" />,
+    user: <Cloud className="text-primary w-7 h-7" />,
   };
   const handleLogout = () => {
     Cookies.remove("userInfo");
@@ -76,7 +70,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
       <NavbarBrand className="gap-5 lg:gap-x-8">
         <Link href="/">
           <div className="flex gap-1">
-            <Image src={logo} alt="Logo" />
+            <Image src={logo} alt="Logo" className="w-8 h-8" />
             <p className="font-semibold text-2xl text-blue-600">Summare</p>
           </div>
         </Link>
@@ -113,7 +107,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               className="text-[#2c2c30]"
               href="/article-category?keyword=Computervision"
               key="computer_vision"
-              startContent={icons.activity}
+              startContent={icons.lock}
             >
               Computer Vision
             </DropdownItem>
@@ -140,7 +134,7 @@ export default function Header({ setSearchTerm }: HeaderProps) {
               className="text-[#2c2c30]"
               href="/article-category?keyword=Artificialintelligence"
               key="ai"
-              startContent={icons.server}
+              startContent={icons.cpu}
             >
               Artificial Intelligence
             </DropdownItem>

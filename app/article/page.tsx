@@ -19,7 +19,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    metadataBase: new URL("https://summare-ai.vercel.app"),
+    metadataBase: new URL("https://www.summare.ai"),
     title: data.title,
     description: data.paragraph_one,
     robots: "index,follow",
@@ -30,8 +30,8 @@ export async function generateMetadata(
       authors: [data.source],
       images: [...previousImages, data.image_url],
       locale: "en_US",
-      url: "https://summare-ai.vercel.app/article?id=" + id,
-      siteName: "Summare.ai - AI article summaries",
+      url: "https://www.summare.ai/article?id=" + id,
+      siteName: "Summare AI - AI article summaries",
       publishedTime: data.date,
     },
     authors: [data.source],
@@ -44,7 +44,7 @@ export async function generateMetadata(
       creator: data.source,
       description: data.description,
       title: data.title,
-      site: "Summare.ai - AI article summaries",
+      site: "Summare AI - AI article summaries",
       images: [...previousImages, data.image_url],
     },
   };
