@@ -23,22 +23,6 @@ function HomeScreen({ history }) {
 
   let keyword = location.search;
 
-  const reportTemplateRef = useRef(null);
-
-  const handleGeneratePdf = () => {
-    // document.getElementById("ad").hidden = false;
-    const doc = new jsPDF({
-      format: "a1",
-      unit: "px",
-    });
-
-    doc.html(reportTemplateRef.current, {
-      async callback(doc) {
-        await doc.save("document");
-      },
-    });
-  };
-
   useEffect(() => {
     console.log(articles);
     // console.log(error)
@@ -49,14 +33,6 @@ function HomeScreen({ history }) {
 
   return (
     <div className="main">
-      <Header />
-      <Row>
-        <Col lg={1}></Col>
-        <Col lg={9}></Col>
-        <Col lg={2}>
-          <Button onClick={handleGeneratePdf}>Export PDF</Button>
-        </Col>
-      </Row>
       {!keyword && articles ? (
         <div className="pt-4">
           <Container>
@@ -67,7 +43,7 @@ function HomeScreen({ history }) {
 
           {loading && <Loader />}
 
-          <Container ref={reportTemplateRef}>
+          <Container>
             <Row>
               <Col lg={6} className="">
                 <Row>
